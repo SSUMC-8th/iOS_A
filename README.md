@@ -1,6 +1,6 @@
 # iOS A
 
-SSUMC 7기 iOS 스터디 A조
+SSUMC 8기 iOS 스터디 A조
 
 ## Member
 
