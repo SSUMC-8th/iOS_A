@@ -35,7 +35,7 @@ SSUMC 8기 iOS 스터디 A조
 ## 커밋 컨벤션 (규칙)
 
 ``` zsh
-[egg/week1] 내용
+[egg/week1/#이슈번호] 내용
 ```
 
 <br>
