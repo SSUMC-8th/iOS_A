@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    // MARK: - Properties
+    // MARK: - @Bindable
+    /// 뷰모델
     @Bindable private var viewModel: SignUpViewModel = .init()
 
     var body: some View {

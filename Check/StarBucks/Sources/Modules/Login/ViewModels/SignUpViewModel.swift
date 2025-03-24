@@ -11,6 +11,9 @@ import SwiftUI
 @Observable
 class SignUpViewModel {
     
+    // MARK: - Model
+    var signUpModel = SignUpModel()
+    
     // MARK: - Properties
     /// 입력받은 닉네임
     var enteredNickname: String = ""
@@ -26,9 +29,11 @@ class SignUpViewModel {
         return !enteredId.isEmpty && !enteredNickname.isEmpty && !enteredPassword.isEmpty
     }
     
-    // TODO: - 계정 생성 API 요청
+    // MARK: - Methods
     /// 계정 생성하기
     func createAccount() {
-        
+        signUpModel.userId = enteredId
+        signUpModel.userNickname = enteredNickname
+        signUpModel.userPassword = enteredPassword
     }
 }

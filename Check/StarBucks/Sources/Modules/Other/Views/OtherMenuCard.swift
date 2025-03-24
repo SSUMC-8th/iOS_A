@@ -1,5 +1,5 @@
 //
-//  PayCard.swift
+//  OtherMenuCard.swift
 //  StarBucks
 //
 //  Created by LEE on 3/24/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PayCard: View {
+struct OtherMenuCard: View {
     
     // MARK: - Properties
     /// 버튼 제목

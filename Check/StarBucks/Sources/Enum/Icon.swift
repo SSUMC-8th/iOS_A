@@ -15,6 +15,7 @@ enum Icon: String {
     // MARK: - Login
     case apple_login = "apple_login"
     case kakao_login = "kakao_login"
+    case ad_image = "ad_image"
     
     // MARK: - Other
     case logout = "logout"
@@ -31,6 +32,17 @@ enum Icon: String {
     case my_review = "my_review"
     case customer = "customer"
     
+    // MARK: - Tab
+    case home = "home"
+    case pay = "pay"
+    case order = "order"
+    case shop = "shop"
+    case other = "other"
+    case home_selected = "home_selected"
+    case pay_selected = "pay_selected"
+    case order_selected = "order_selected"
+    case shop_selected = "shop_selected"
+    case other_selected = "other_selected"
     
     var image: Image {
         return Image(self.rawValue)

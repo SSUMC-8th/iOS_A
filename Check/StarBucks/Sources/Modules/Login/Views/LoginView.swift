@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    // MARK: - @Bindable
+    /// 뷰모델
     @Bindable private var viewModel: LoginViewModel = .init()
     
     var body: some View {
@@ -59,6 +61,7 @@ struct LoginView: View {
             SBTextField(text: $viewModel.enteredId, type: .id)
             SBTextField(text: $viewModel.enteredPassword, type: .password)
                     
+            // TODO: - 로그인 버튼 탭 이벤트 구현
             SBMainButton(title: "로그인하기", action: { print("로그인 버튼 누름")}, isEnable: viewModel.canLogin)
         }
         .safeAreaPadding(.horizontal, 19)
@@ -76,12 +79,14 @@ struct LoginView: View {
                     .underline(true, color: .gray04)
             })
             
+            // TODO: - 카카오 로그인 구현
             Button(action: { print("카카오 로그인") }, label: {
                 Icon.kakao_login.image
 
             })
                 
-            Button(action: { print("카카오 로그인") }, label: {
+            // TODO: - 애플 로그인 구현
+            Button(action: { print("애플 로그인") }, label: {
                 Icon.apple_login.image
             })
             
