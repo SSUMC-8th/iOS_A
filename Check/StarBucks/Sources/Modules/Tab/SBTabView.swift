@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SBTabView: View {
     
+    // MARK: - @State
+    /// 현재 탭
     @State private var selectedTab: SBTabCase = .home
     
     var body: some View {
@@ -22,8 +24,10 @@ struct SBTabView: View {
             }
         }
         .background(Color.white)
+
     }
     
+    /// 탭 바
     private var tabBar: some View {
         HStack(alignment: .bottom) {
             ForEach(SBTabCase.allCases, id: \.rawValue) { tab in

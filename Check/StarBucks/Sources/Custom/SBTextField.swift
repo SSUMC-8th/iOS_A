@@ -10,20 +10,21 @@ import SwiftUI
 /// StartBucks 앱의 텍스트 필드
 struct SBTextField: View {
     
-    // MARK: - Properties
+    // MARK: - @Binding
     /// 바인딩될 문자열
     @Binding var text: String
     
-    /// 텍스트 필드의 Focus 상태
+    // MARK: - @FocusState
+    /// 현재 텍스트필드가 포커스 되어있는지
     @FocusState var isFocused: Bool
     
-    /// 텍스트 필드의 타입
+    // MARK: - Properties
+    /// 텍스트 필드 타입
     let type: SBTextFieldType
     
     /// 최대 문자열 길이
     let maxLength: Int = 20
     
-
     var body: some View {
         
         ZStack(alignment: .leading) {
@@ -43,6 +44,9 @@ struct SBTextField: View {
                             text = oldValue
                         }
                     }
+                    .onSubmit {
+                        hideKeyboard()
+                    }
             } else {
                 TextField("", text: $text)
                     .focused($isFocused)
@@ -51,6 +55,9 @@ struct SBTextField: View {
                         if newValue.count > maxLength {
                             text = oldValue
                         }
+                    }
+                    .onSubmit {
+                        hideKeyboard()
                     }
             }
 
@@ -63,6 +70,13 @@ struct SBTextField: View {
                 .animation(.easeInOut(duration: 0.3), value: $isFocused.wrappedValue),
             alignment: .bottom
         )
+    }
+    
+    // MARK: - Methods
+    /// 키보드를 숨깁니다.
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
     }
 }
 
@@ -78,3 +92,4 @@ extension SBTextField {
 
     }
 }
+

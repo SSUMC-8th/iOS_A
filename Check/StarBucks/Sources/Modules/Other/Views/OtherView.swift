@@ -9,24 +9,35 @@ import SwiftUI
 
 struct OtherView: View {
     
-    // MARK: - @AppStorage
-    /// 닉네임
-    @AppStorage("userNickname") private var userNickname = ""
+    // MARK: - @Bindable
+    /// 뷰모델
+    @Bindable private var viewModel: OtherViewModel = .init()
     
     var body: some View {
         
-        VStack(spacing: 24) {
-            navigationBar
-                                   
-            nicknameSection
+        ZStack(alignment: .top) {
             
-            tileButtonSection
+            navigationBar.zIndex(1)
+                            
+            ScrollView {
+                
+                VStack(spacing: 24) {
+                    
+                    nicknameSection
+                    
+                    tileButtonSection
+                    
+                    paySection
+                    
+                    customerSection
+                    
+                    Spacer()
+                }
+            }
+            .background(Color.white01)
+            .padding(.vertical, 70)
+            .zIndex(0)
             
-            paySection
-            
-            customerSection
-            
-            Spacer()
         }
         .background(Color.white01)
     }
@@ -48,7 +59,7 @@ struct OtherView: View {
             }
             .padding(.horizontal, 19)
         }
-        .frame(height: 80)
+        .frame(height: 70)
         .background(Color.white)
     }
     
@@ -56,7 +67,7 @@ struct OtherView: View {
     private var nicknameSection: some View {
         VStack(spacing: 5) {
             
-            let attributedString = AttributedString.nickname(nickname: userNickname.isEmpty ? "(작성한 닉네임)" : userNickname).attributedString
+            let attributedString = AttributedString.nickname(nickname: viewModel.userNickname).attributedString
             
             Text(attributedString)
                 .font(.mainTextSemiBold24)
@@ -64,6 +75,7 @@ struct OtherView: View {
             Text("환영합니다! 🙌🏻")
                 .font(.mainTextSemiBold24)
         }
+        .padding(.top, 20)
     }
     
     /// 타일 버튼 섹션

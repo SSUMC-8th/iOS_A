@@ -35,5 +35,6 @@ class SignUpViewModel {
         signUpModel.userId = enteredId
         signUpModel.userNickname = enteredNickname
         signUpModel.userPassword = enteredPassword
+        print(signUpModel.userNickname)
     }
 }
