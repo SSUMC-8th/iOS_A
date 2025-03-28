@@ -27,7 +27,11 @@ extension Font {
     static var mainTextSemiBold24: Font {
         return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 24)
     }
-
+    
+    static var mainTextSemiBold18: Font {
+        return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 18)
+    }
+    
     static var mainTextSemiBold16: Font {
         return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 16)
     }
@@ -63,5 +67,6 @@ extension Font {
     static var buttonTextMedium18: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 18)
     }
+    
     
 }

@@ -9,6 +9,10 @@ import SwiftUI
 
 struct LoginView: View {
     
+    // MARK: - @Bindable
+    /// 뷰모델
+    @Bindable private var viewModel: LoginViewModel = .init()
+    
     var body: some View {
         
         VStack(spacing: 50) {
@@ -21,6 +25,7 @@ struct LoginView: View {
         }
     }
     
+    /// 스타벅스 아이콘 및 인사 텍스트
     private var titleSection: some View {
         
         HStack {
@@ -48,42 +53,21 @@ struct LoginView: View {
         
     }
     
+    /// 아이디, 비밀번호 텍스트 필드 및 로그인 버튼
     private var loginSection: some View {
         
         VStack(spacing: 47) {
-            VStack(alignment: .leading, spacing: 2) {
-                Text("아이디")
-                    .font(.mainTextRegular13)
-                    .foregroundStyle(Color.black01)
-                Divider()
-                    .foregroundStyle(Color.gray00)
-                    .frame(height: 0.7)
-            }
             
-            VStack(alignment: .leading, spacing: 2){
-                Text("비밀번호")
-                    .font(.mainTextRegular13)
-                    .foregroundStyle(Color.black01)
-                Divider()
-                    .foregroundStyle(Color.gray00)
-                    .frame(height: 0.7)
-            }
-            
-            Button(action: { print("로그인 버튼 누름!") }, label: {
-                ZStack(alignment: .center) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.green01)
+            SBTextField(text: $viewModel.enteredId, type: .id)
+            SBTextField(text: $viewModel.enteredPassword, type: .password)
                     
-                    Text("로그인하기")
-                        .font(.mainTextMedium16)
-                        .foregroundStyle(.white)
-                }
-                .frame(height: 46)
-            })
+            // TODO: - 로그인 버튼 탭 이벤트 구현
+            SBMainButton(title: "로그인하기", action: { print("로그인 버튼 누름")}, isEnable: viewModel.canLogin)
         }
         .safeAreaPadding(.horizontal, 19)
     }
     
+    /// 이메일로 회원가입 버튼 및 OAuth 로그인 버튼
     private var oAuthSection: some View {
         
         VStack(alignment: .center, spacing: 19) {
@@ -95,31 +79,36 @@ struct LoginView: View {
                     .underline(true, color: .gray04)
             })
             
+            // TODO: - 카카오 로그인 구현
             Button(action: { print("카카오 로그인") }, label: {
                 Icon.kakao_login.image
 
             })
                 
-            Button(action: { print("카카오 로그인") }, label: {
+            // TODO: - 애플 로그인 구현
+            Button(action: { print("애플 로그인") }, label: {
                 Icon.apple_login.image
             })
             
         }
     }
+    
 }
 
-
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            LoginView()
-                .previewDevice("iPhone 11")
-                .previewDisplayName("iPhone 11")
-            
-            LoginView()
-                .previewDevice("iPhone 16 Pro Max")
-                .previewDisplayName("iPhone 16 Pro Max")
-        }
-    }
+#Preview {
+    LoginView()
 }
+
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            LoginView()
+//                .previewDevice("iPhone 11")
+//                .previewDisplayName("iPhone 11")
+//            
+//            LoginView()
+//                .previewDevice("iPhone 16 Pro Max")
+//                .previewDisplayName("iPhone 16 Pro Max")
+//        }
+//    }
+//}
