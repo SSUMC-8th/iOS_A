@@ -24,6 +24,7 @@ public enum UMC1stProjectAsset: Sendable {
   public enum Assets {
   public static let accentColor = UMC1stProjectColors(name: "AccentColor")
     public static let appleLogin = UMC1stProjectImages(name: "AppleLogin")
+
     public static let home = UMC1stProjectImages(name: "Home")
     public static let kakaoLogin = UMC1stProjectImages(name: "KakaoLogin")
     public static let logout = UMC1stProjectImages(name: "Logout")
@@ -52,7 +53,7 @@ public enum UMC1stProjectAsset: Sendable {
     public static let 쿠폰히스토리 = UMC1stProjectImages(name: "쿠폰 히스토리")
   }
   public enum Colors {
-  public static let black01 = UMC1stProjectColors(name: "black01 ")
+    public static let black01 = UMC1stProjectColors(name: "black01 ")
     public static let black02 = UMC1stProjectColors(name: "black02")
     public static let black03 = UMC1stProjectColors(name: "black03")
     public static let blue01 = UMC1stProjectColors(name: "blue01")
