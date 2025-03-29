@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @State private var id: String = ""
+    @State private var pw: String = ""
+    @FocusState private var isIdFocused: Bool
+    @FocusState private var isPwFocused: Bool
+    
     var body: some View {
         VStack {
             mainTitleGroup
@@ -36,10 +42,10 @@ struct LoginView: View {
                 //.border(Color.red)
             
             
-            Text("회원 서비스 이용을 위해 로그인 해주세요.")
+            Text("회원 서비스 이용을 위해 로그인 해주세요")
                 .font(.mainTextMedium16)
                 .foregroundStyle(Color("gray01"))
-                .border(Color.red)
+                //.border(Color.red)
             
             
             
@@ -57,15 +63,21 @@ struct LoginView: View {
         VStack (alignment: .leading, spacing: 47) {
             
             VStack(alignment: .leading, spacing: 2){
-                Text("아이디")
+                TextField("아이디", text: $id)
                     .font(.mainTextRegular13)
+                    .focused($isIdFocused)
+                
                 Divider()
-                    .foregroundStyle(Color("gray00"))
+                    .background(isIdFocused ? Color("green01") : Color("gray00"))
+                
                 Spacer().frame(height:47)
-                Text("비밀번호")
+                
+                TextField("비밀번호", text: $pw)
                     .font(.mainTextRegular13)
+                    .focused($isPwFocused)
+                
                 Divider()
-                    .foregroundStyle(Color("gray00"))
+                    .background(isPwFocused ? Color("green01") : Color("gray00"))
             }
             .foregroundStyle(.gray)
             
