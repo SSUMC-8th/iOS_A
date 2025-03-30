@@ -1,24 +1,25 @@
 //
-//  PayView.swift
+//  CoffeeDetailView.swift
 //  StarBucks
 //
-//  Created by LEE on 3/25/25.
+//  Created by LEE on 3/30/25.
 //
 
 import SwiftUI
 
-struct PayView: View {
+struct CoffeeDetailView: View {
     
     // MARK: - @EnvironmentObject
-    /// 의존성 주입 컨테이너
     @EnvironmentObject var container: DIContainer
     
     init(container: DIContainer) {
-        
+     
     }
     
     var body: some View {
-        Text("PayView")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
+    
+    
+    
 }
-

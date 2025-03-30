@@ -9,8 +9,9 @@ struct StarBucksApp: App {
         WindowGroup {
             LoginView(container: container)
                 .environmentObject(container)
+//            SBTabView(container: container)
+//                .environmentObject(container)
         }
     }
 }
-
 

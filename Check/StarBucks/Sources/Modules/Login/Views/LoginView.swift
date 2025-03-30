@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     // MARK: @EnvironmentObject
+    /// 의존성 주입 컨테이너
     @EnvironmentObject var container: DIContainer
     
     // MARK: - @Bindable
@@ -21,7 +22,6 @@ struct LoginView: View {
     }
     
     var body: some View {
-        
         
         NavigationStack(path: $container.navigationRouter.destinations) {
             

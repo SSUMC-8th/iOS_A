@@ -9,13 +9,38 @@ import SwiftUI
 
 struct SBTabView: View {
     
+    // MARK: - @EnvironmentObject
+    /// 의존성 주입 컨테이너
+    @EnvironmentObject var container: DIContainer
+    
     // MARK: - @State
     /// 현재 탭
     @State private var selectedTab: SBTabCase = .home
     
+    init(container: DIContainer) {
+        
+        
+    }
+    
     var body: some View {
         ZStack {
-            selectedTab.contentView
+            switch selectedTab {
+            case .home:
+                HomeView(container: container)
+                    .environmentObject(container)
+            case .pay:
+                PayView(container: container)
+                    .environmentObject(container)
+            case .order:
+                OrderView(container: container)
+                    .environmentObject(container)
+            case .shop:
+                ShopView(container: container)
+                    .environmentObject(container)
+            case .other:
+                OtherView(container: container)
+                    .environmentObject(container)
+            }
                     
             VStack {
                 Spacer()
@@ -57,5 +82,7 @@ struct SBTabView: View {
 }
 
 #Preview {
-    SBTabView()
+    let container = DIContainer()
+    SBTabView(container: container)
+        .environmentObject(container)
 }

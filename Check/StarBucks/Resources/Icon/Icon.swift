@@ -44,6 +44,21 @@ enum Icon: String {
     case shop_selected = "shop_selected"
     case other_selected = "other_selected"
     
+    // MARK: - Home
+    case top_banner = "top_banner"
+    case ad_banner = "ad_banner"
+    case coldbrew_banner = "coldbrew_banner"
+    case event_banner = "event_banner"
+    case mug_banner = "mug_banner"
+    case starbucks_banner = "starbucks_banner"
+    case subscribe_banner = "subscribe_banner"
+    case coffee_americano = "coffee_americano"
+    case coffee_caramel = "coffee_caramel"
+    case coffee_contana = "coffee_contana"
+    case coffee_espresso = "coffee_espresso"
+    case coffee_ice_americano = "coffee_ice_americano"
+    case coffee_ice_caramel = "coffee_ice_caramel"
+    
     var image: Image {
         return Image(self.rawValue)
     }

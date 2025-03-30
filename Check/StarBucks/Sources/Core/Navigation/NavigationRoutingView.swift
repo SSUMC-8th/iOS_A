@@ -9,9 +9,15 @@ import SwiftUI
 
 struct NavigationRoutingView: View {
     
+    // MARK: - @EnvironmentObject
+    /// 의존성 주입 컨테이너
+    @EnvironmentObject var container: DIContainer
+    
+    // MARK: - @State
+    /// 현재 화면
     @State var destination: NavigationDestination
     
-    @EnvironmentObject var container: DIContainer
+    
     
     var body: some View {
         switch destination {
@@ -19,10 +25,11 @@ struct NavigationRoutingView: View {
             SignUpView(container: container)
                 .environmentObject(container)
         case .tabView:
-            SBTabView()
+            SBTabView(container: container)
                 .environmentObject(container)
-//        case .coffeDetailView(container: container)
-//                .environmentObject(container)
+        case .coffeeDetailView:
+            CoffeeDetailView(container: container)
+                .environmentObject(container)
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     
     // MARK: - @EnvironmentObject
+    /// 의존성 주입 컨테이너
     @EnvironmentObject var container: DIContainer
     
     // MARK: - @Bindable
@@ -23,6 +24,10 @@ struct SignUpView: View {
     var body: some View {
         VStack(spacing: 0) {
             
+            SBNavigationBar(type: .leftBack) {
+                container.navigationRouter.pop()
+            }
+            
             Spacer().frame(height: 210)
             
             textFieldSection
@@ -31,10 +36,12 @@ struct SignUpView: View {
             
             SBMainButton(title: "생성하기", action: {
                 viewModel.createAccount()
+                container.navigationRouter.pop()
             }, isEnable: viewModel.canCreateAccount)
         }
         .safeAreaPadding(.horizontal, 19)
         .safeAreaPadding(.bottom, 30)
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - Properties

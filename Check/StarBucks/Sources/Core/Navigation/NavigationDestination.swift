@@ -11,6 +11,6 @@ enum NavigationDestination {
     
     case signUpView /* 회원가입 화면 */
     case tabView /* 탭 뷰 */
-    // case coffeDetailView /* 커피 상세정보 화면 */
+    case coffeeDetailView /* 커피 상세정보 화면 */
     
 }

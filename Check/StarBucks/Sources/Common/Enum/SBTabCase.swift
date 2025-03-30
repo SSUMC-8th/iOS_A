@@ -25,21 +25,5 @@ enum SBTabCase: String, CaseIterable {
     var selectedImageName: String {
         return self.imageName + "_selected"
     }
-
-    /// 탭 아이템에 해당하는 콘텐트 뷰
-    var contentView: some View {
-        switch self {
-        case .home:
-            return AnyView(HomeView())
-        case .pay:
-            return AnyView(PayView())
-        case .order:
-            return AnyView(OrderView())
-        case .shop:
-            return AnyView(ShopView())
-        case .other:
-            return AnyView(OtherView())
-        }
-    }
     
 }
