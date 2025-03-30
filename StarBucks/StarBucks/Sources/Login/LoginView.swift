@@ -1,17 +1,11 @@
-//
-//  SwiftUIView.swift
-//  StarBucks
-//
-//  Created by 한태빈 on 3/23/25.
-//
-
 import Foundation
 import SwiftUI
 
 struct LoginView: View {
-    @State private var id: String = ""
-    @State private var password: String = ""
-    
+    @StateObject private var viewModel = LoginViewModel()
+    @FocusState private var isIdFocused: Bool
+    @FocusState private var isPwdFocused: Bool
+
     var body: some View {
         VStack {
             Spacer().frame(height: 104) // 상단 여백
@@ -19,10 +13,10 @@ struct LoginView: View {
             loginTextField
             loginButton
             Spacer().frame(height: 90.95) // 하단 여백
-                
         }
     }
-    // 로그인 상단뷰
+
+    // 로그인 상단 뷰
     private var loginLogo: some View {
         Group {
             VStack(alignment: .leading) {
@@ -41,20 +35,41 @@ struct LoginView: View {
             .padding(19)
         }
     }
+
     // 로그인 텍스트필드
     private var loginTextField: some View {
         Group {
-            VStack {
-                TextField("아이디", text: $id)
+            VStack(spacing: 0) {
+                // 아이디 입력
+                TextField("아이디", text: $viewModel.id)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.PretendardRegular13)
-                Divider()
+                    .accentColor(Color("StarBucksGreen"))
+                    .focused($isIdFocused)
+                    .padding(.vertical, 8)
+
+                Rectangle()
+                    .frame(height: 1.5)
+                    .foregroundColor(isIdFocused ? Color("StarBucksGreen") : .gray)
+
                 Spacer().frame(height: 20)
-                SecureField("비밀번호", text: $password)
+
+                // 비밀번호 입력
+                SecureField("비밀번호", text: $viewModel.pwd)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.PretendardRegular13)
-                Divider()
+                    .accentColor(Color("StarBucksGreen"))
+                    .focused($isPwdFocused)
+                    .padding(.vertical, 8)
+
+                Rectangle()
+                    .frame(height: 1.5)
+                    .foregroundColor(isPwdFocused ? Color("StarBucksGreen") : .gray)
+
+
                 Spacer().frame(height: 47)
+
+                // 로그인 버튼
                 Button(action: {
                     print("로그인 버튼")
                 }) {
@@ -62,13 +77,15 @@ struct LoginView: View {
                         .font(.PretendardMedium16)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, maxHeight: 46)
-                        .background(Color("green01"))
+                        .background(Color("StarBucksGreen"))
                         .cornerRadius(20)
-                }            }
+                }
+            }
         }
         .frame(maxWidth: 402, minHeight: 180)
         .padding(19)
     }
+
     // 하단 로그인
     private var loginButton: some View {
         VStack(alignment: .center) {
@@ -77,10 +94,12 @@ struct LoginView: View {
                 .foregroundStyle(Color(.gray))
                 .underline()
                 .padding(.bottom, 10)
+
             Image("KaKaoLogin")
                 .resizable()
                 .frame(width: 305, height: 45)
                 .padding(.bottom, 10)
+
             Image("AppleLogin")
                 .resizable()
                 .frame(width: 305, height: 45)
@@ -88,7 +107,6 @@ struct LoginView: View {
         .frame(maxWidth: 306, minHeight: 104)
         .padding(.top, 30)
     }
-    
 }
 
 #Preview {
