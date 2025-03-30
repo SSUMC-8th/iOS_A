@@ -9,19 +9,34 @@ import SwiftUI
 
 struct LoginView: View {
     
+    // MARK: @EnvironmentObject
+    @EnvironmentObject var container: DIContainer
+    
     // MARK: - @Bindable
     /// 뷰모델
     @Bindable private var viewModel: LoginViewModel = .init()
     
+    init(container: DIContainer){
+        
+    }
+    
     var body: some View {
         
-        VStack(spacing: 50) {
+        
+        NavigationStack(path: $container.navigationRouter.destinations) {
             
-            titleSection
-            
-            loginSection
-            
-            oAuthSection
+            VStack(spacing: 50) {
+                
+                titleSection
+                
+                loginSection
+                
+                oAuthSection
+            }
+            .navigationDestination(for: NavigationDestination.self) { destination in
+                    NavigationRoutingView(destination: destination)
+                    .environmentObject(container)
+            }
         }
     }
     
@@ -62,7 +77,10 @@ struct LoginView: View {
             SBTextField(text: $viewModel.enteredPassword, type: .password)
                     
             // TODO: - 로그인 버튼 탭 이벤트 구현
-            SBMainButton(title: "로그인하기", action: { print("로그인 버튼 누름")}, isEnable: viewModel.canLogin)
+            SBMainButton(title: "로그인하기", action: {
+                container.navigationRouter.push(to: .tabView)
+                
+            }, isEnable: viewModel.canLogin)
         }
         .safeAreaPadding(.horizontal, 19)
     }
@@ -72,7 +90,11 @@ struct LoginView: View {
         
         VStack(alignment: .center, spacing: 19) {
             
-            Button(action: { print("이메일로 회원가입하기 버튼 누름!")}, label: {
+            Button(action: {
+                
+                container.navigationRouter.push(to: .signUpView)
+                
+            }, label: {
                 Text("이매일로 회원가입하기")
                     .font(.mainTextRegular12)
                     .foregroundStyle(Color.gray04)
@@ -96,7 +118,8 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(container: .init())
+        .environmentObject(DIContainer())
 }
 
 //struct LoginView_Previews: PreviewProvider {

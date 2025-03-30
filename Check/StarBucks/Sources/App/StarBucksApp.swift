@@ -1,10 +1,16 @@
 import SwiftUI
 
 @main
-struct Week1App: App {
+struct StarBucksApp: App {
+    
+    @State var container: DIContainer = .init()
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            LoginView(container: container)
+                .environmentObject(container)
         }
     }
 }
+
+

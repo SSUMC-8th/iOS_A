@@ -9,10 +9,17 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    // MARK: - @EnvironmentObject
+    @EnvironmentObject var container: DIContainer
+    
     // MARK: - @Bindable
     /// 뷰모델
     @Bindable private var viewModel: SignUpViewModel = .init()
+    
+    init(container: DIContainer) {
 
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             
@@ -45,6 +52,7 @@ struct SignUpView: View {
     }
 }
 
-#Preview {
-    SignUpView()
-}
+//#Preview {
+//    SignUpView(container:)
+//        .environmentObject(DIContainer())
+//}

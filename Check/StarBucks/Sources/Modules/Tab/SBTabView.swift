@@ -24,6 +24,7 @@ struct SBTabView: View {
             }
         }
         .background(Color.white)
+        .navigationBarBackButtonHidden(true)
 
     }
     
