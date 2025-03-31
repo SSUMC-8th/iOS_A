@@ -23,7 +23,8 @@ struct SBTabView: View {
     }
     
     var body: some View {
-        ZStack {
+ 
+        VStack {
             switch selectedTab {
             case .home:
                 HomeView(container: container)
@@ -41,16 +42,14 @@ struct SBTabView: View {
                 OtherView(container: container)
                     .environmentObject(container)
             }
-                    
-            VStack {
-                Spacer()
-                        
-                tabBar
-            }
+                
+            Spacer()
+                
+            tabBar
         }
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
-
+        
     }
     
     /// 탭 바
