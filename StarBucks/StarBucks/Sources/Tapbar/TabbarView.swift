@@ -9,8 +9,11 @@ struct TabbarView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            TopBarView(title: topBarTitles[selectedIndex])
-            
+            TopBarView(
+                title: topBarTitles[selectedIndex],
+                showExit: selectedIndex == 4
+            )
+
             ZStack {
                 selectedView(for: selectedIndex)
             }
@@ -76,6 +79,7 @@ struct TabbarView: View {
 
 struct TopBarView: View {
     var title: String
+    var showExit: Bool = false
     
     var body: some View {
         HStack {
@@ -83,11 +87,19 @@ struct TopBarView: View {
                 .font(.PretendardBold24)
                 .padding(.leading, 23.5)
             Spacer()
+            if showExit {
+                Button(action: {
+                }) {
+                    Image("exit")
+                        .padding(.trailing, 23.5)
+                }
+            }
         }
         .frame(height: 80)
         .background(Color.white)
     }
 }
+
 
 #Preview {
     TabbarView()
