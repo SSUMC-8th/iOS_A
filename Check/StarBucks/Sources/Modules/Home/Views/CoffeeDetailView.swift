@@ -29,8 +29,14 @@ struct CoffeeDetailView: View {
             
             menuDescriptionSection
             
+            temperatureView(menu: menu)
+                
             Spacer()
-            
+            SBMainButton(title: "주문하기", action: {
+                // TODO: - 주문하기 구현
+            }, isEnable: true)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
         }
         .navigationBarBackButtonHidden(true)
         
@@ -39,7 +45,7 @@ struct CoffeeDetailView: View {
     }
     
     /// 메뉴 설명 섹션
-    var menuDescriptionSection: some View {
+    private var menuDescriptionSection: some View {
         
         VStack(alignment: .leading, spacing: 10) {
             
@@ -69,6 +75,43 @@ struct CoffeeDetailView: View {
             
         }
         .padding(.horizontal, 10)
+    }
+    
+    @ViewBuilder
+    private func temperatureView(menu: Menu) -> some View {
+        switch menu.temperature {
+        case .hot:
+            HStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundStyle(Color.gray00)
+                        
+                RoundedRectangle(cornerRadius: 20)
+                    
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 36)
+        case .ice:
+            HStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundStyle(Color.gray00)
+                
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 36)
+        default:
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.clear)
+                    .stroke(Color.gray00)
+                
+                Text(menu.temperature.rawValue)
+                    .font(.mainTextBold15)
+                    .foregroundStyle(menu.temperature == .hotOnly ? .red : .blue)
+            }
+            .padding(.top, 10)
+            .frame(maxWidth: .infinity)
+            .frame(height: 36)
+        }
     }
     
 }

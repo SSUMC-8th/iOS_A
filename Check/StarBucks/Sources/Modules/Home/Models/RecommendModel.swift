@@ -139,6 +139,19 @@ enum Menu: Hashable {
         case hot
         case iceOnly
         case hotOnly
+        
+        var rawValue: String {
+            switch self {
+            case .hot:
+                return "HOT"
+            case .hotOnly:
+                return "HOT ONLY"
+            case .ice:
+                return "ICED"
+            case .iceOnly:
+                return "ICE ONLY"
+            }
+        }
     }
     
     var temperature: Temperature {
