@@ -7,10 +7,10 @@ struct StarBucksApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView(container: container)
-                .environmentObject(container)
-//            SBTabView(container: container)
+//            LoginView(container: container)
 //                .environmentObject(container)
+            SBTabView(container: container)
+                .environmentObject(container)
         }
     }
 }

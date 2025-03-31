@@ -37,6 +37,8 @@ struct HomeView: View {
                     
                     Icon.subscribe_banner.image
                     
+                    whatsNewSection
+                    
                     Icon.mug_banner.image
                     
                     Icon.coldbrew_banner.image
@@ -171,10 +173,10 @@ struct HomeView: View {
                 LazyHStack(spacing: 16) {
                     ForEach(viewModel.recommendModel, id: \.id) {
                         item in
-                        item.image
+                        item.menu.thumnNailImage
                             .onTapGesture {
                                 print("gd")
-                                container.navigationRouter.push(to: .coffeeDetailView
+                                container.navigationRouter.push(to: .coffeeDetailView(menu: item.menu)
                                 )
                             }
                     }
@@ -186,7 +188,54 @@ struct HomeView: View {
             .safeAreaPadding(.horizontal, 10)
 
         }
-        .safeAreaPadding(.horizontal, 20)
+        .safeAreaPadding(.horizontal, 10)
+    }
+    
+    private var whatsNewSection: some View {
+        
+        VStack(alignment: .leading) {
+            
+            HStack {
+                Text("What's\nNew")
+                    .font(.mainTextBold24)
+                    .foregroundStyle(Color.black03)
+                
+                Spacer()
+            }
+            .padding(.top, 5)
+            
+            ScrollView(.horizontal) {
+                
+                LazyHStack(spacing: 10) {
+                    ForEach(viewModel.whatsNewModel, id: \.id) {
+                        item in
+                        card(for: item)
+                        
+                    }
+                }
+                
+            }
+            .scrollIndicators(.hidden)
+        }
+        .padding(.horizontal, 10)
+    }
+    
+    private func card(for item: WhatsNewModel) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            item.image
+            
+            Text(item.title)
+                .font(.mainTextSemiBold18)
+                .foregroundStyle(Color.black02)
+            
+            Text(item.decription)
+                .font(.mainTextSemiBold13)
+                .foregroundStyle(Color.gray03)
+            
+            Spacer()
+        }
+        .frame(width: 242, height: 250)
+        
     }
 }
 

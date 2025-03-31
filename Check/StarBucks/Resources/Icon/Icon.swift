@@ -58,7 +58,20 @@ enum Icon: String {
     case coffee_espresso = "coffee_espresso"
     case coffee_ice_americano = "coffee_ice_americano"
     case coffee_ice_caramel = "coffee_ice_caramel"
+    case recycle = "recycle"
+    case find_starbucks = "find_starbucks"
+    case reserve_spring = "reserve_spring"
     
+    // MARK: - CoffeeDetail
+    case cafe_americano = "cafe_americano"
+    case caramel_macchiato = "caramel_macchiato"
+    case espresso_conpana = "espresso_conpana"
+    case espresso_macchiato = "espresso_macchiato"
+    case ice_cafe_americano = "ice_cafe_americano"
+    case ice_caramel_macchiato = "ice_caramel_macchiato"
+    case new = "new"
+    
+
     var image: Image {
         return Image(self.rawValue)
     }

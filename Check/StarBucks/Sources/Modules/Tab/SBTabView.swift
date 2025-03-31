@@ -23,32 +23,38 @@ struct SBTabView: View {
     }
     
     var body: some View {
- 
-        VStack {
-            switch selectedTab {
-            case .home:
-                HomeView(container: container)
-                    .environmentObject(container)
-            case .pay:
-                PayView(container: container)
-                    .environmentObject(container)
-            case .order:
-                OrderView(container: container)
-                    .environmentObject(container)
-            case .shop:
-                ShopView(container: container)
-                    .environmentObject(container)
-            case .other:
-                OtherView(container: container)
+        NavigationStack(path: $container.navigationRouter.destinations) {
+            
+            VStack {
+                switch selectedTab {
+                case .home:
+                    HomeView(container: container)
+                        .environmentObject(container)
+                case .pay:
+                    PayView(container: container)
+                        .environmentObject(container)
+                case .order:
+                    OrderView(container: container)
+                        .environmentObject(container)
+                case .shop:
+                    ShopView(container: container)
+                        .environmentObject(container)
+                case .other:
+                    OtherView(container: container)
+                        .environmentObject(container)
+                }
+                
+                Spacer()
+                
+                tabBar
+            }
+            .navigationDestination(for: NavigationDestination.self) { destination in
+                    NavigationRoutingView(destination: destination)
                     .environmentObject(container)
             }
-                
-            Spacer()
-                
-            tabBar
+            .background(Color.white)
+            .navigationBarBackButtonHidden(true)
         }
-        .background(Color.white)
-        .navigationBarBackButtonHidden(true)
         
     }
     

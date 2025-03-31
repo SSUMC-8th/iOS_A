@@ -39,13 +39,29 @@ extension Font {
     static var mainTextSemiBold16: Font {
         return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 16)
     }
+    
+    static var mainTextSemiBold14: Font {
+        return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 14)
+    }
+    
+    static var mainTextSemiBold13: Font {
+        return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 13)
+    }
 
     // MARK: MainText - Medium
+    static var mainTextMedium24: Font {
+        return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 24)
+    }
+    
     static var mainTextMedium16: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 16)
     }
 
     // MARK: MainText - Regular
+    static var mainTextRegular24: Font {
+        return StarBucksFontFamily.Pretendard.regular.swiftUIFont(size: 24)
+    }
+    
     static var mainTextRegular18: Font {
         return StarBucksFontFamily.Pretendard.regular.swiftUIFont(size: 18)
     }

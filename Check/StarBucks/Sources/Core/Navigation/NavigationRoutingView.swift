@@ -27,8 +27,8 @@ struct NavigationRoutingView: View {
         case .tabView:
             SBTabView(container: container)
                 .environmentObject(container)
-        case .coffeeDetailView:
-            CoffeeDetailView(container: container)
+        case .coffeeDetailView(let menu):
+            CoffeeDetailView(container: container, menu: menu)
                 .environmentObject(container)
         }
     }
