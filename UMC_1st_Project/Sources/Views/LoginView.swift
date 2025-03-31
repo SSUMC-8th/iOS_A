@@ -5,7 +5,9 @@
 //  Created by 이민서 on 3/22/25.
 //
 
+import Foundation
 import SwiftUI
+import Observation
 
 struct LoginView: View {
     
@@ -14,17 +16,21 @@ struct LoginView: View {
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPwFocused: Bool
     
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        VStack {
-            mainTitleGroup
-            Spacer()
-            mainLoginGroup
-            Spacer()
-            mainBottomGroup
+        NavigationStack(path:$path){
+            VStack {
+                mainTitleGroup
+                Spacer()
+                mainLoginGroup
+                Spacer()
+                mainBottomGroup
+            }
+            
+            //.border(Color.blue)
+            .padding(.top, 104)
         }
-        
-        //.border(Color.blue)
-        .padding(.top, 104)
     }
     
     private var mainTitleGroup: some View {
@@ -34,18 +40,18 @@ struct LoginView: View {
             Image("StarbucksLogo")
                 .resizable()
                 .frame(width: 97, height:95)
-                //.border(Color.red)
+            //.border(Color.red)
             
             Text("안녕하세요.\n스타벅스입니다.")
                 .font(.mainTextExtraBold24)
                 .kerning(1.2)
-                //.border(Color.red)
+            //.border(Color.red)
             
             
             Text("회원 서비스 이용을 위해 로그인 해주세요")
                 .font(.mainTextMedium16)
                 .foregroundStyle(Color("gray01"))
-                //.border(Color.red)
+            //.border(Color.red)
             
             
             
@@ -57,7 +63,7 @@ struct LoginView: View {
         
         
     }
-   
+    
     
     private var mainLoginGroup: some View {
         VStack (alignment: .leading, spacing: 47) {
@@ -72,7 +78,7 @@ struct LoginView: View {
                 
                 Spacer().frame(height:47)
                 
-                TextField("비밀번호", text: $pw)
+                SecureField("비밀번호", text: $pw)
                     .font(.mainTextRegular13)
                     .focused($isPwFocused)
                 
@@ -105,43 +111,44 @@ struct LoginView: View {
     }
     
     private var mainBottomGroup: some View {
+        
         VStack (spacing: 19) {
-            Button(action: {
             
-            }) {
-                Text("이메일로 회원가입하기")
-                    .underline()
-                    .font(.mainTextRegular12)
-                    .foregroundStyle(Color("gray04"))
+            NavigationLink(destination: SignupView()) {
+                           Text("이메일로 회원가입하기")
+                               .underline()
+                               .font(.mainTextRegular12)
+                               .foregroundStyle(Color("gray04"))
+                       }
+                       
+                
+                Button(action: {
+                    
+                }) {
+                    Image("KakaoLogin")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 45)
+                }
+                
+                Button(action: {
+                    
+                }) {
+                    Image("AppleLogin")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 45)
+                }
+                
             }
-            
-            Button(action: {
-               
-            }) {
-                Image("KakaoLogin")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 45)
-            }
-            
-            Button(action: {
-              
-            }) {
-                Image("AppleLogin")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 45)
-            }
-            
+            //.border(Color.blue)
         }
-        //.border(Color.blue)
+        
+        
     }
     
-       
-}
-        
     
-    
+
 
 #Preview {
     LoginView()
