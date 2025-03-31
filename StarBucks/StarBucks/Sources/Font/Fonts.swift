@@ -76,6 +76,10 @@ extension Font {
         return .pretend(type: .bold, size: 24)
     }
     
+    static var PretendardRegualar24: Font {
+        return .pretend(type: .regular, size: 24)
+    }
+    
     static var PretendardSemiBold24: Font {
         return .pretend(type: .semibold, size: 24)
     }
@@ -88,8 +92,16 @@ extension Font {
         return .pretend(type: .light, size: 14)
     }
     
+    static var PretendardSemibold14: Font {
+        return .pretend(type: .semibold, size: 14)
+    }
+    
     // MARK: - Button Text Styles
     static var PretendardMedium18: Font {
+        return .pretend(type: .medium, size: 18)
+    }
+    
+    static var PretendardMedium13: Font {
         return .pretend(type: .medium, size: 18)
     }
 }

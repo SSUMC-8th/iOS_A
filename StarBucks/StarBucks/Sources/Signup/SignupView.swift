@@ -2,10 +2,11 @@ import SwiftUI
 
 struct SignupView: View {
     @StateObject private var viewModel = SignupViewModel()
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack(spacing: 40) {
-            // 닉네임
+            // 닉네임 입력
             VStack(alignment: .leading, spacing: 8) {
                 TextField("닉네임", text: $viewModel.signupModel.nickname)
                     .textFieldStyle(PlainTextFieldStyle())
@@ -16,7 +17,7 @@ struct SignupView: View {
                     .foregroundColor(.gray.opacity(0.4))
             }
 
-            // 이메일
+            // 이메일 입력
             VStack(alignment: .leading, spacing: 8) {
                 TextField("이메일", text: $viewModel.signupModel.email)
                     .keyboardType(.emailAddress)
@@ -28,7 +29,7 @@ struct SignupView: View {
                     .foregroundColor(.gray.opacity(0.4))
             }
 
-            // 비밀번호
+            // 비밀번호 입력
             VStack(alignment: .leading, spacing: 8) {
                 SecureField("비밀번호", text: $viewModel.signupModel.password)
                     .textFieldStyle(PlainTextFieldStyle())
@@ -39,9 +40,10 @@ struct SignupView: View {
                     .foregroundColor(.gray.opacity(0.4))
             }
 
-            // 버튼
+            // 생성하기 버튼 (생성 후 dismiss 호출)
             Button(action: {
                 viewModel.storageData()
+                dismiss()
             }) {
                 Text("생성하기")
                     .foregroundColor(.white)
@@ -56,6 +58,8 @@ struct SignupView: View {
     }
 }
 
-#Preview {
-    SignupView()
+struct SignupView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignupView()
+    }
 }

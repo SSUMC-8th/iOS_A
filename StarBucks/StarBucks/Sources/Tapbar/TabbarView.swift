@@ -4,16 +4,15 @@ struct TabbarView: View {
     @State private var selectedIndex: Int = 0
     
     private let tabNames = ["home", "pay", "order", "shop", "other"]
-    
     private let topBarTitles = ["Home", "Pay", "Order", "Shop", "Other"]
     
     var body: some View {
         VStack(spacing: 0) {
             TopBarView(
                 title: topBarTitles[selectedIndex],
-                showExit: selectedIndex == 4
+                showExit: selectedIndex == 4  
             )
-
+            
             ZStack {
                 selectedView(for: selectedIndex)
             }
@@ -78,6 +77,7 @@ struct TabbarView: View {
 }
 
 struct TopBarView: View {
+    @EnvironmentObject var router: NavigationRouter
     var title: String
     var showExit: Bool = false
     
@@ -89,6 +89,7 @@ struct TopBarView: View {
             Spacer()
             if showExit {
                 Button(action: {
+                    router.isLoggedIn = false
                 }) {
                     Image("exit")
                         .padding(.trailing, 23.5)
@@ -100,7 +101,6 @@ struct TopBarView: View {
     }
 }
 
-
 #Preview {
-    TabbarView()
+    TabbarView().environmentObject(NavigationRouter())
 }
