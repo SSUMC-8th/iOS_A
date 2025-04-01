@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "nutty_croissant.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -52,6 +52,10 @@ enum Icon: String {
     case mug_banner = "mug_banner"
     case starbucks_banner = "starbucks_banner"
     case subscribe_banner = "subscribe_banner"
+    case beverage_banner = "beverage_banner"
+    case online_banner = "online_banner"
+    case delivery_banner = "delivery_banner"
+    
     case coffee_americano = "coffee_americano"
     case coffee_caramel = "coffee_caramel"
     case coffee_contana = "coffee_contana"
@@ -61,6 +65,12 @@ enum Icon: String {
     case recycle = "recycle"
     case find_starbucks = "find_starbucks"
     case reserve_spring = "reserve_spring"
+    case mini_leaf_pie = "mini_leaf_pie"
+    case nutty_croissant = "nutty_croissant"
+    case pain_au_chocolat = "pain_au_chocolat"
+    case sausage_olive_pie = "sausage_olive_pie"
+    case spicy_sausage_bulgogi = "spicy_sausage_bulgogi"
+    
     
     // MARK: - CoffeeDetail
     case cafe_americano = "cafe_americano"
@@ -70,6 +80,8 @@ enum Icon: String {
     case ice_cafe_americano = "ice_cafe_americano"
     case ice_caramel_macchiato = "ice_caramel_macchiato"
     case new = "new"
+    case back = "back"
+    case share = "share"
     
 
     var image: Image {

@@ -41,7 +41,15 @@ struct HomeView: View {
                     
                     Icon.mug_banner.image
                     
+                    Icon.online_banner.image
+                    
+                    Icon.delivery_banner.image
+                    
+                    dessertSection
+                    
                     Icon.coldbrew_banner.image
+                    
+                    Icon.beverage_banner.image
                     
                     Icon.starbucks_banner.image
                 }
@@ -175,10 +183,10 @@ struct HomeView: View {
                         item in
                         item.menu.thumnNailImage
                             .onTapGesture {
-                                print("gd")
+                                print("추천 커피 메뉴")
                                 container.navigationRouter.push(to: .coffeeDetailView(menu: item.menu)
                                 )
-                            }
+                            } 
                     }
                 }
                 .scrollTargetLayout()
@@ -191,6 +199,7 @@ struct HomeView: View {
         .safeAreaPadding(.horizontal, 10)
     }
     
+    /// What's New 섹션
     private var whatsNewSection: some View {
         
         VStack(alignment: .leading) {
@@ -209,7 +218,7 @@ struct HomeView: View {
                 LazyHStack(spacing: 10) {
                     ForEach(viewModel.whatsNewModel, id: \.id) {
                         item in
-                        card(for: item)
+                        whatsNewCard(for: item)
                         
                     }
                 }
@@ -220,7 +229,10 @@ struct HomeView: View {
         .padding(.horizontal, 10)
     }
     
-    private func card(for item: WhatsNewModel) -> some View {
+    /// What's New 카드
+    /// - Parameter item: WhatsNewModel
+    /// - Returns: What's New 카드
+    private func whatsNewCard(for item: WhatsNewModel) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             item.image
             
@@ -235,6 +247,56 @@ struct HomeView: View {
             Spacer()
         }
         .frame(width: 242, height: 250)
+        
+    }
+    
+    /// 디저트 섹션
+    private var dessertSection: some View {
+        
+        VStack(alignment: .leading) {
+            
+            HStack {
+                Text("하루가 달콤해지는 디저트")
+                    .font(.mainTextBold24)
+                    .foregroundStyle(Color.black03)
+                
+                Spacer()
+            }
+            .padding(.top, 5)
+            
+            ScrollView(.horizontal) {
+                
+                LazyHStack(spacing: 10) {
+                    ForEach(viewModel.dessertModel, id: \.id) {
+                        item in
+                        dessertCard(for: item)
+                        
+                    }
+                }
+                .scrollTargetLayout()
+                
+            }
+            .scrollIndicators(.hidden)
+            .scrollTargetBehavior(.viewAligned)
+        }
+        .padding(.horizontal, 10)
+
+    }
+    
+    /// 디저트 카드
+    /// - Parameter item: DessertModel
+    /// - Returns: 디저트 카드 뷰
+    private func dessertCard(for item: DessertModel) -> some View {
+        VStack(spacing: 16) {
+            item.image
+            
+            Text(item.title)
+                .font(.mainTextSemiBold18)
+                .foregroundStyle(Color.black02)
+                        
+            Spacer()
+        }
+        .frame(width: 130, height: 200)
         
     }
 }

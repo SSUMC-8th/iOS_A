@@ -17,8 +17,6 @@ struct NavigationRoutingView: View {
     /// 현재 화면
     @State var destination: NavigationDestination
     
-    
-    
     var body: some View {
         switch destination {
         case .signUpView:

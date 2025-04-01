@@ -24,8 +24,12 @@ struct CoffeeDetailView: View {
         
         VStack(alignment: .leading, spacing: 10) {
             
-            menu.image
-                .padding(.bottom, 10)
+            menuImageSection(leftAction: {
+                container.navigationRouter.pop()
+            }, rightAction: {
+                // TODO: - 공유 버튼 구현
+                print("공유하기")
+            })
             
             menuDescriptionSection
             
@@ -34,6 +38,7 @@ struct CoffeeDetailView: View {
             Spacer()
             SBMainButton(title: "주문하기", action: {
                 // TODO: - 주문하기 구현
+                print("주문하기")
             }, isEnable: true)
             .padding(.leading, 20)
             .padding(.trailing, 20)
@@ -42,6 +47,34 @@ struct CoffeeDetailView: View {
         
         
         
+    }
+    
+    /// 상단 좌우 버튼
+    /// - Parameters:
+    ///   - leftAction: 네비게이션 back 버튼 탭 시 클로저
+    ///   - rightAction: 공유 버튼 탭 시 클로저
+    /// - Returns: 상단 좌우 버튼
+    private func menuImageSection(leftAction: @escaping () -> Void, rightAction: @escaping () -> Void ) -> some View {
+        
+        ZStack(alignment: .topLeading) {
+            
+            menu.image
+
+            HStack {
+                Button(action: leftAction, label: {
+                    Icon.back.image
+                })
+                
+                Spacer()
+                
+                Button(action: rightAction, label: {
+                    Icon.share.image
+                })
+            }
+            .safeAreaPadding(.vertical, 20)
+            .padding(.horizontal, 10)
+            
+        }
     }
     
     /// 메뉴 설명 섹션

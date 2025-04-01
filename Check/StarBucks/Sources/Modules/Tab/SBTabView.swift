@@ -19,7 +19,6 @@ struct SBTabView: View {
     
     init(container: DIContainer) {
         
-        
     }
     
     var body: some View {

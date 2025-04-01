@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "pain_au_chocolat.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
