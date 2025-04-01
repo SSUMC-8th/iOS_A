@@ -20,9 +20,11 @@
 		60F6B4DC7CB749FF8B2197EC /* TuistFonts+UMC1stProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8CF684F9FC03C30A4DBE1 /* TuistFonts+UMC1stProject.swift */; };
 		6D14A40E257D3B52C7F4ECC6 /* AdbannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89B4C32A6D1C27B5DDE850 /* AdbannerView.swift */; };
 		7C407AFF65A3C3150DEDAD38 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2118A779A4F215ED11164B /* Fonts.swift */; };
+		7F7CC9AE333610A11715740E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A1890EE6458F212CBE4F1 /* HomeViewModel.swift */; };
+		858ECB2E2D9BADC50065E94B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858ECB2D2D9BADC50065E94B /* HomeModel.swift */; };
+		858ECB3F2D9BE65A0065E94B /* CoffeeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858ECB3E2D9BE65A0065E94B /* CoffeeDetailsModel.swift */; };
+		858ECB522D9BEFA70065E94B /* CoffeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858ECB512D9BEFA70065E94B /* CoffeeDetailsView.swift */; };
 		85CBB17B41073B68329CB74C /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */; };
-		85D354DF2D991693001015E8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D354DE2D991693001015E8 /* HomeView.swift */; };
-		85D354E12D9916DB001015E8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D354E02D9916DB001015E8 /* HomeViewModel.swift */; };
 		86EA6AC3FD066044B5345C95 /* TuistBundle+UMC1stProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6AF82B820E88C804B563B7 /* TuistBundle+UMC1stProject.swift */; };
 		8D93F1491A2AF9D58881D730 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1688AAA21C305A30DE8206 /* Pretendard-Regular.otf */; };
 		A0A24B698C1F0B467BF44BB2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A47756EAFD6CCFF8916CF5 /* LoginViewModel.swift */; };
@@ -32,6 +34,7 @@
 		C5587C16CBB8F71A02556DE0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ACBDA8058B3ABF85A65C22 /* LoginView.swift */; };
 		CFBED69EDC6A3F6B78E9304A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44878BAB61D91BFFD789897A /* Pretendard-SemiBold.otf */; };
 		D06BE8A987B0249459D9C660 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBF19026052AFAC90CA2BC6 /* TabBarView.swift */; };
+		D427BE00913C12BB8367D9CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77C94642DF7CACD994C6286 /* HomeView.swift */; };
 		D962B9E6EFD1625C42116870 /* UMC1stProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811D668F8B43F28EC3B3264 /* UMC1stProjectApp.swift */; };
 		E01E12872EC815F05104029A /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B482E842174373C8FD5DFEE /* Pretendard-Light.otf */; };
 		E1EA8B86281DDAC9CC93E5F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0137EAA108AE7CAD8C129A89 /* Preview Assets.xcassets */; };
@@ -89,21 +92,24 @@
 		45CC5E0E33456E464DCE7CCC /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4C348889609D33C6CC7F65E5 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		50B29C97442216139B407ED9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		594A1890EE6458F212CBE4F1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6811D668F8B43F28EC3B3264 /* UMC1stProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMC1stProjectApp.swift; sourceTree = "<group>"; };
 		69B8CF684F9FC03C30A4DBE1 /* TuistFonts+UMC1stProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistFonts+UMC1stProject.swift"; sourceTree = "<group>"; };
 		7C89B4C32A6D1C27B5DDE850 /* AdbannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdbannerView.swift; sourceTree = "<group>"; };
 		84A47756EAFD6CCFF8916CF5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		85D354DE2D991693001015E8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		85D354E02D9916DB001015E8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		858ECB2D2D9BADC50065E94B /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		858ECB3E2D9BE65A0065E94B /* CoffeeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailsModel.swift; sourceTree = "<group>"; };
+		858ECB512D9BEFA70065E94B /* CoffeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailsView.swift; sourceTree = "<group>"; };
 		8E1688AAA21C305A30DE8206 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		8F27A81B24A790F0AAA61DAC /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		91B7D05B3B5130C0EA144775 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		922E34B6F8DAB4A683A4064B /* UMC_1st_Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UMC_1st_Project-Info.plist"; sourceTree = "<group>"; };
+		922E34B6F8DAB4A683A4064B /* UMC_1st_Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "UMC_1st_Project-Info.plist"; sourceTree = "<group>"; };
 		9408CE4AB0C5FE6B853D6622 /* UMC_1st_ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMC_1st_ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		986F41DDFD36B6AB99942DBD /* UMC_1st_ProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UMC_1st_ProjectTests-Info.plist"; sourceTree = "<group>"; };
+		986F41DDFD36B6AB99942DBD /* UMC_1st_ProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "UMC_1st_ProjectTests-Info.plist"; sourceTree = "<group>"; };
 		9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		AD6AF82B820E88C804B563B7 /* TuistBundle+UMC1stProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+UMC1stProject.swift"; sourceTree = "<group>"; };
 		B2CEAA2A005688CF71BDF839 /* UMC_1st_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMC_1st_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77C94642DF7CACD994C6286 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CFBF19026052AFAC90CA2BC6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D76B042D11EE41E748329F44 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		F1895D066EF034B922A3E1C1 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
@@ -143,6 +149,8 @@
 			children = (
 				D76B042D11EE41E748329F44 /* LoginModel.swift */,
 				F1895D066EF034B922A3E1C1 /* SignupModel.swift */,
+				858ECB2D2D9BADC50065E94B /* HomeModel.swift */,
+				858ECB3E2D9BE65A0065E94B /* CoffeeDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,10 +177,10 @@
 		43566E1D197D03CCFF348937 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				594A1890EE6458F212CBE4F1 /* HomeViewModel.swift */,
 				84A47756EAFD6CCFF8916CF5 /* LoginViewModel.swift */,
 				315E0AD8F2089AAF274E8920 /* OtherViewModel.swift */,
 				9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */,
-				85D354E02D9916DB001015E8 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -244,8 +252,8 @@
 		E10E779185A11B808C34222C /* Derived */ = {
 			isa = PBXGroup;
 			children = (
-				7979CDDD5C1E6187B67F7E24 /* Sources */,
 				A4F05858F3FFA1B4F1FA93FA /* InfoPlists */,
+				7979CDDD5C1E6187B67F7E24 /* Sources */,
 			);
 			path = Derived;
 			sourceTree = "<group>";
@@ -254,12 +262,13 @@
 			isa = PBXGroup;
 			children = (
 				7C89B4C32A6D1C27B5DDE850 /* AdbannerView.swift */,
+				C77C94642DF7CACD994C6286 /* HomeView.swift */,
 				21ACBDA8058B3ABF85A65C22 /* LoginView.swift */,
 				08A2953711C8E9B9D5B2D82E /* OtherView.swift */,
 				8F27A81B24A790F0AAA61DAC /* SignupView.swift */,
 				91B7D05B3B5130C0EA144775 /* SplashView.swift */,
 				CFBF19026052AFAC90CA2BC6 /* TabBarView.swift */,
-				85D354DE2D991693001015E8 /* HomeView.swift */,
+				858ECB512D9BEFA70065E94B /* CoffeeDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,18 +395,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE6701D8D41046276B3D6397 /* TuistAssets+UMC1stProject.swift in Sources */,
-				85D354E12D9916DB001015E8 /* HomeViewModel.swift in Sources */,
 				86EA6AC3FD066044B5345C95 /* TuistBundle+UMC1stProject.swift in Sources */,
 				60F6B4DC7CB749FF8B2197EC /* TuistFonts+UMC1stProject.swift in Sources */,
 				7C407AFF65A3C3150DEDAD38 /* Fonts.swift in Sources */,
+				858ECB2E2D9BADC50065E94B /* HomeModel.swift in Sources */,
 				38FAE3E25EAC0FB00AA1B1F3 /* LoginModel.swift in Sources */,
-				85D354DF2D991693001015E8 /* HomeView.swift in Sources */,
+				858ECB522D9BEFA70065E94B /* CoffeeDetailsView.swift in Sources */,
+				858ECB3F2D9BE65A0065E94B /* CoffeeDetailsModel.swift in Sources */,
 				F9D11699496A33E084318EB4 /* SignupModel.swift in Sources */,
 				D962B9E6EFD1625C42116870 /* UMC1stProjectApp.swift in Sources */,
+				7F7CC9AE333610A11715740E /* HomeViewModel.swift in Sources */,
 				A0A24B698C1F0B467BF44BB2 /* LoginViewModel.swift in Sources */,
 				2B5C7A6B2C19C84EB568365D /* OtherViewModel.swift in Sources */,
 				85CBB17B41073B68329CB74C /* SignupViewModel.swift in Sources */,
 				6D14A40E257D3B52C7F4ECC6 /* AdbannerView.swift in Sources */,
+				D427BE00913C12BB8367D9CB /* HomeView.swift in Sources */,
 				C5587C16CBB8F71A02556DE0 /* LoginView.swift in Sources */,
 				F4E4C7C0FAFDBB5E34387375 /* OtherView.swift in Sources */,
 				36FD5780E368D1DED0F1CEAF /* SignupView.swift in Sources */,

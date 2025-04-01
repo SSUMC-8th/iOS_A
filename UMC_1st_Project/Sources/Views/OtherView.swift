@@ -23,7 +23,7 @@ struct OtherView: View {
             Button(action: {
                
             }) {
-                Image("로그아웃")
+                Image("Logout")
                     
             }
            
