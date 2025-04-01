@@ -79,6 +79,13 @@ struct LoginView: View {
                     .focused($focusedField, equals: .id)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
+                    .onSubmit {
+                        if user.login() {
+                            showMainView = true
+                        }else {
+                            print("로그인 실패")
+                        }
+                    } //enter 키로 로그인하기 기능 추가
                     
                 Divider()
                     .overlay(focusedField == .id ? Color.green01 : Color.gray00)
@@ -88,11 +95,18 @@ struct LoginView: View {
             Spacer().frame(height: 47)
         
             VStack {
-                TextField("비밀번호", text: $user.pwd)
+                SecureField("비밀번호", text: $user.pwd)
                     .font(.mainTextRegular13)
                     .focused($focusedField, equals: .pwd)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
+                    .onSubmit {
+                        if user.login() {
+                            showMainView = true
+                        }else {
+                            print("로그인 실패")
+                        }
+                    }
                     
                 Divider()
                     .overlay(focusedField == .pwd ? Color.green01 : Color.gray00)

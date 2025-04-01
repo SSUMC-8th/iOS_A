@@ -119,7 +119,9 @@ struct CoffeeInfoView: View {
 
                     Text("HOT ONLY")
                         .font(.mainTextSemiBold16)
-                        .foregroundStyle(Color(red: 1, green: 0, blue: 0).opacity(0.63))
+                        .foregroundStyle(
+                            Color(red: 1, green: 0, blue: 0).opacity(0.63)
+                        )
                 }
             case 1: /*cold only*/
                 ZStack {
@@ -131,10 +133,12 @@ struct CoffeeInfoView: View {
 
                     Text("COLD ONLY")
                         .font(.mainTextSemiBold16)
-                        .foregroundStyle(Color(red: 0, green: 0.13, blue: 0.98).opacity(0.63))
+                        .foregroundStyle(
+                            Color(red: 0, green: 0.13, blue: 0.98).opacity(0.63)
+                        )
                 }
             default: /* both */
-                TemperatureSelectionView(selectedTemperature: $selectedTemperature)
+                temperatureSelectionView
             }
         }
         .padding(.horizontal)
@@ -160,57 +164,84 @@ struct CoffeeInfoView: View {
         .padding(.vertical, 15)
         .padding(.horizontal, 28)
     }
-    struct TemperatureSelectionView: View {
-        @Binding var selectedTemperature: TemperatureOption?
+    
+    private var temperatureSelectionView: some View {
         
-        var body: some View {
-            ZStack {
-                Rectangle()
-                    .fill(Color(red: 0.9, green: 0.9, blue: 0.9))
-                    .cornerRadius(999)
-                    .frame(maxWidth: 420, maxHeight: 36)
+        ZStack {
+            Rectangle()
+                .fill(Color(red: 0.9, green: 0.9, blue: 0.9))
+                .cornerRadius(999)
+                .frame(maxWidth: 420, maxHeight: 36)
                 
-                HStack {
-                    Button(action: {
-                        withAnimation {
-                            selectedTemperature = .hot
-                        }
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .fill(selectedTemperature == .hot ? Color.white : Color.clear)
-                                .cornerRadius(999)
-                                .frame(maxWidth: 208, maxHeight: 36)
-                                .shadow(color: .black.opacity(0.25), radius: 5, x: 0, y: 1)
-                            Text("HOT")
-                                .font(.mainTextSemiBold18)
-                                .foregroundStyle(selectedTemperature == .hot ? Color(red: 1, green: 0, blue: 0).opacity(0.63) : Color.gray02)
-                        }
+            HStack {
+                Button(action: {
+                    withAnimation {
+                        selectedTemperature = .hot
                     }
+                }) {
+                    ZStack {
+                        Rectangle()
+                            .fill(
+                                selectedTemperature == .hot ? Color.white : Color.clear
+                            )
+                            .cornerRadius(999)
+                            .frame(maxWidth: 208, maxHeight: 36)
+                            .shadow(
+                                color: .black.opacity(0.25),
+                                radius: 5,
+                                x: 0,
+                                y: 1
+                            )
+                        Text("HOT")
+                            .font(.mainTextSemiBold18)
+                            .foregroundStyle(
+                                selectedTemperature == .hot ? Color(
+                                    red: 1,
+                                    green: 0,
+                                    blue: 0
+                                )
+                                .opacity(0.63) : Color.gray02
+                            )
+                    }
+                }
                     
-                    Spacer()
+                Spacer()
                     
-                    Button(action: {
-                        withAnimation {
-                            selectedTemperature = .iced
-                        }
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .fill(selectedTemperature == .iced ? Color.white : Color.clear)
-                                .cornerRadius(999)
-                                .frame(maxWidth: 208, maxHeight: 36)
-                                .shadow(color: .black.opacity(0.25), radius: 5, x: 0, y: 1)
-                            Text("ICED")
-                                .font(.mainTextSemiBold18)
-                                .foregroundStyle(selectedTemperature == .iced ? Color(red: 0, green: 0.13, blue: 0.98).opacity(0.63) : Color.gray02)
-                        }
+                Button(action: {
+                    withAnimation {
+                        selectedTemperature = .iced
+                    }
+                }) {
+                    ZStack {
+                        Rectangle()
+                            .fill(
+                                selectedTemperature == .iced ? Color.white : Color.clear
+                            )
+                            .cornerRadius(999)
+                            .frame(maxWidth: 208, maxHeight: 36)
+                            .shadow(
+                                color: .black.opacity(0.25),
+                                radius: 5,
+                                x: 0,
+                                y: 1
+                            )
+                        Text("ICED")
+                            .font(.mainTextSemiBold18)
+                            .foregroundStyle(
+                                selectedTemperature == .iced ? Color(
+                                    red: 0,
+                                    green: 0.13,
+                                    blue: 0.98
+                                )
+                                .opacity(0.63) : Color.gray02
+                            )
                     }
                 }
             }
         }
     }
 }
+
 
 #Preview {
     CoffeeInfoView(coffee: CoffeeInfoModel.CafeAmericano)
