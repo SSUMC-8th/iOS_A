@@ -13,8 +13,9 @@ import Foundation
 //    var CoffeeKoreanName: String
 //    var CoffeeEnglishName: String
 //}
-enum TemperatureOption {
-    case hot, iced
+
+enum TemperatureOption: String{
+    case hot = "HOT", iced = "ICED"
 }
 
 enum CoffeeInfoModel: CaseIterable{
@@ -144,4 +145,7 @@ enum CoffeeInfoModel: CaseIterable{
             return 1
         }
     }
+    
+    
+    //열거형으로
 }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-<<<<<<< HEAD
 import Observation
 
 struct LoginView: View {
@@ -46,37 +45,6 @@ struct LoginView: View {
         }
         .navigationBarBackButtonHidden()
         .tint(.black)
-=======
-
-struct LoginView: View {
-    @StateObject private var user = LoginViewModel()
-    
-    enum FocusedField {
-            case id, pwd
-        }
-        
-        @FocusState private var focusedField: FocusedField?
-    
-    var body: some View {
-        VStack {
-            VStack (spacing: 0){
-                mainTitle
-                    .frame(maxWidth: 402, maxHeight: 219, alignment: .topLeading)
-                
-                Spacer()
-                
-                loginButton
-                    .frame(maxWidth: 402, maxHeight: 180, alignment: .center)
-                
-                Spacer()/*.frame(minWidth: 0, maxWidth: .infinity)*/
-                
-                joinButton
-                    .frame(maxWidth: 306, maxHeight: 144, alignment: .bottom)
-            }
-        }
-        .padding(.top, 104)
-        .padding()
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
     }
 
     
@@ -109,11 +77,15 @@ struct LoginView: View {
                 TextField("아이디", text: $user.id)
                     .font(.mainTextRegular13)
                     .focused($focusedField, equals: .id)
-<<<<<<< HEAD
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
-=======
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
+                    .onSubmit {
+                        if user.login() {
+                            showMainView = true
+                        }else {
+                            print("로그인 실패")
+                        }
+                    } //enter 키로 로그인하기 기능 추가
                     
                 Divider()
                     .overlay(focusedField == .id ? Color.green01 : Color.gray00)
@@ -123,14 +95,18 @@ struct LoginView: View {
             Spacer().frame(height: 47)
         
             VStack {
-                TextField("비밀번호", text: $user.pwd)
+                SecureField("비밀번호", text: $user.pwd)
                     .font(.mainTextRegular13)
                     .focused($focusedField, equals: .pwd)
-<<<<<<< HEAD
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
-=======
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
+                    .onSubmit {
+                        if user.login() {
+                            showMainView = true
+                        }else {
+                            print("로그인 실패")
+                        }
+                    }
                     
                 Divider()
                     .overlay(focusedField == .pwd ? Color.green01 : Color.gray00)
@@ -139,15 +115,11 @@ struct LoginView: View {
             Spacer().frame(height: 47)
             
             Button(action: {
-<<<<<<< HEAD
                 if user.login() {
                     showMainView = true
                 }else {
                     print("로그인 실패")
                 }
-=======
-                print("로그인하기 버튼이 눌렸습니다")
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
             }, label: {
                 ZStack {
                     Rectangle()
@@ -168,23 +140,13 @@ struct LoginView: View {
 
     private var joinButton: some View {
         VStack {
-<<<<<<< HEAD
             NavigationLink(destination: SignupView()){
-=======
-            Button(action: {
-                print("Hello")
-            }, label: {
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
                 Text("이메일로 회원가입하기")
                     .font(.mainTextRegular12)
                     .foregroundStyle(Color.gray04)
                     .underline()
-<<<<<<< HEAD
             }
             
-=======
-            })
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
             
             Spacer().frame(height: 19)
             
