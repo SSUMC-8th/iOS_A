@@ -5,18 +5,18 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPwdFocused: Bool
+    @EnvironmentObject var router: NavigationRouter
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 104) // 상단 여백
+            Spacer().frame(height: 104)
             loginLogo
             loginTextField
             loginButton
-            Spacer().frame(height: 90.95) // 하단 여백
+            Spacer().frame(height: 90.95)
         }
     }
 
-    // 로그인 상단 뷰
     private var loginLogo: some View {
         Group {
             VStack(alignment: .leading) {
@@ -36,42 +36,37 @@ struct LoginView: View {
         }
     }
 
-    // 로그인 텍스트필드
     private var loginTextField: some View {
         Group {
             VStack(spacing: 0) {
-                // 아이디 입력
                 TextField("아이디", text: $viewModel.id)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.PretendardRegular13)
                     .accentColor(Color("StarBucksGreen"))
                     .focused($isIdFocused)
                     .padding(.vertical, 8)
-
+                
                 Rectangle()
                     .frame(height: 1.5)
                     .foregroundColor(isIdFocused ? Color("StarBucksGreen") : .gray)
-
+                
                 Spacer().frame(height: 20)
-
-                // 비밀번호 입력
+                
                 SecureField("비밀번호", text: $viewModel.pwd)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.PretendardRegular13)
                     .accentColor(Color("StarBucksGreen"))
                     .focused($isPwdFocused)
                     .padding(.vertical, 8)
-
+                
                 Rectangle()
                     .frame(height: 1.5)
                     .foregroundColor(isPwdFocused ? Color("StarBucksGreen") : .gray)
-
-
+                
                 Spacer().frame(height: 47)
-
-                // 로그인 버튼
+                
                 Button(action: {
-                    print("로그인 버튼")
+                    router.isLoggedIn = true
                 }) {
                     Text("로그인하기")
                         .font(.PretendardMedium16)
@@ -86,20 +81,21 @@ struct LoginView: View {
         .padding(19)
     }
 
-    // 하단 로그인
     private var loginButton: some View {
         VStack(alignment: .center) {
-            Text("이메일로 회원가입하기")
-                .font(.PretendardRegular12)
-                .foregroundStyle(Color(.gray))
-                .underline()
-                .padding(.bottom, 10)
-
+            NavigationLink(destination: SignupView()) {
+                Text("이메일로 회원가입하기")
+                    .font(.PretendardRegular12)
+                    .foregroundStyle(Color(.gray))
+                    .underline()
+            }
+            .padding(.bottom, 10)
+            
             Image("KaKaoLogin")
                 .resizable()
                 .frame(width: 305, height: 45)
                 .padding(.bottom, 10)
-
+            
             Image("AppleLogin")
                 .resizable()
                 .frame(width: 305, height: 45)
@@ -109,6 +105,11 @@ struct LoginView: View {
     }
 }
 
-#Preview {
-    LoginView()
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            LoginView()
+                .environmentObject(NavigationRouter())
+        }
+    }
 }
