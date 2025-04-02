@@ -51,6 +51,7 @@ public enum UMC1stProjectAsset: Sendable {
     public static let deliverysvcbanner = UMC1stProjectImages(name: "deliverysvcbanner")
     public static let icechallengebanner = UMC1stProjectImages(name: "icechallengebanner")
     public static let mugcupbanner = UMC1stProjectImages(name: "mugcupbanner")
+    public static let new = UMC1stProjectImages(name: "new")
     public static let onlinestorebanner = UMC1stProjectImages(name: "onlinestorebanner")
     public static let servicebanner = UMC1stProjectImages(name: "servicebanner")
     public static let share = UMC1stProjectImages(name: "share")
