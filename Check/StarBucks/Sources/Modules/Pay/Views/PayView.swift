@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct PayView: View {
+    
+    // MARK: - @EnvironmentObject
+    /// 의존성 주입 컨테이너
+    @EnvironmentObject var container: DIContainer
+    
+    init(container: DIContainer) {
+        
+    }
+    
     var body: some View {
         Text("PayView")
     }
 }
 
-#Preview {
-    PayView()
-}

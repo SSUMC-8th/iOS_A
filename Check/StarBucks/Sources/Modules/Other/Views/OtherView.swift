@@ -9,9 +9,17 @@ import SwiftUI
 
 struct OtherView: View {
     
+    // MARK: - @EnvironmentObject
+    /// 의존성 주입 컨테이너
+    @EnvironmentObject var container: DIContainer
+
     // MARK: - @Bindable
     /// 뷰모델
     @Bindable private var viewModel: OtherViewModel = .init()
+    
+    init(container: DIContainer) {
+        
+    }
     
     var body: some View {
         
@@ -67,7 +75,7 @@ struct OtherView: View {
     private var nicknameSection: some View {
         VStack(spacing: 5) {
             
-            let attributedString = AttributedString.nickname(nickname: viewModel.userNickname).attributedString
+            let attributedString = AttributedString.nickname(nickname: viewModel.userNickname, suffix: "님", color: Color.green01).attributedString
             
             Text(attributedString)
                 .font(.mainTextSemiBold24)
@@ -187,9 +195,4 @@ struct OtherView: View {
         })
     }
 }
-
-#Preview {
-    OtherView()
-}
-
 
