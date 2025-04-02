@@ -17,7 +17,7 @@ struct TabBarView: View {
             
             
             Tab("Home", image: selection == 0 ? "SelectedHome" : "Home", value: 0) {
-                Text("Home")
+                HomeView()
             }
             Tab("Pay", image: selection == 1 ? "SelectedPay" : "Pay", value: 1) {
                 Text("Pay")

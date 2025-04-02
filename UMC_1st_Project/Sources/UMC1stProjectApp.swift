@@ -4,7 +4,7 @@ import SwiftUI
 struct UMC1stProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            LoginView()
         }
     }
 }
