@@ -12,13 +12,13 @@ import SwiftUI
 @Observable
 class HomeViewModel {
     var coffees = [
-        Menu(imageName: "에스프레소 콘파나"),
-        Menu(imageName: "에스프레소 마키아또"),
-        Menu(imageName: "아이스 카페 아메리카노"),
-        Menu(imageName: "카페 아메리카노"),
-        Menu(imageName: "아이스 카라멜 마키아또"),
-        Menu(imageName: "카라멜 마키아또")
-    ]
+            Menu(imageName: "에스프레소 콘파나", coffeeType: .EspressoConPanna),
+            Menu(imageName: "에스프레소 마키아또", coffeeType: .EspressoMacchiato),
+            Menu(imageName: "아이스 카페 아메리카노", coffeeType: .IcedCaffeAmericano),
+            Menu(imageName: "카페 아메리카노", coffeeType: .CaffeAmericano),
+            Menu(imageName: "아이스 카라멜 마키아또", coffeeType: .IcedCaramelMacchiato),
+            Menu(imageName: "카라멜 마키아또", coffeeType: .CaramelMacchiato)
+        ]
     
     var whatsnews = [
         Menu(imageName: "whatsnew_1"),

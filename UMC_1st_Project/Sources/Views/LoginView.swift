@@ -11,6 +11,10 @@ import Observation
 
 struct LoginView: View {
     
+    @AppStorage("email") private var savedId: String = "" // 저장된 아이디
+    @AppStorage("password") private var savedPw: String = "" // 저장된 비밀번호
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    
     @State private var id: String = ""
     @State private var pw: String = ""
     @FocusState private var isIdFocused: Bool
@@ -30,6 +34,7 @@ struct LoginView: View {
             
             //.border(Color.blue)
             .padding(.top, 104)
+            
         }
     }
     
@@ -78,7 +83,7 @@ struct LoginView: View {
                 
                 Spacer().frame(height:47)
                 
-                SecureField("비밀번호", text: $pw)
+                TextField("비밀번호", text: $pw)
                     .font(.mainTextRegular13)
                     .focused($isPwFocused)
                 
@@ -89,6 +94,9 @@ struct LoginView: View {
             
             Button(action: {
                 print("로그인 버튼 클릭")
+                if performLogin(){
+                    path.append("otherview")}
+                else {print("실패")}
             } , label : {
                 ZStack{
                     RoundedRectangle(cornerRadius: 20)
@@ -99,12 +107,17 @@ struct LoginView: View {
                         .foregroundStyle(Color.white)
                         .font(.mainTextMedium16)
                 }
-            }
-            )
+            })
+                            
         }
         
         //.border(Color.blue)
         .padding(.horizontal, 20)
+        .navigationDestination(for: String.self) { value in
+                        if value == "otherview" {
+                            OtherView()
+                        }
+                    }
         
         
         
@@ -143,11 +156,22 @@ struct LoginView: View {
             }
             //.border(Color.blue)
         }
-        
+    
+    func performLogin() -> Bool {
+            if id == savedId && pw == savedPw {
+                isLoggedIn = true
+                print("로그인 성공")
+                return true
+            } else {
+                print("로그인 실패")
+                return false
+            }
+        }
         
     }
     
     
+
 
 
 #Preview {

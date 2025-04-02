@@ -20,13 +20,16 @@ struct CoffeeDetailsView: View {
         
     
     var body: some View {
-        //Text("1")
-        
+       
         ZStack (alignment: .top){
             Image(coffeeType.imageName())
                 .resizable()
-                .scaledToFit()
+                //.scaledToFit()
+                .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
+                .frame(width: 440, height: 355, alignment: .center)
+                //.border(Color.red)
+       
             HStack{
                 Button(action: {
                     dismiss()
@@ -40,12 +43,16 @@ struct CoffeeDetailsView: View {
                     Image("share")
                 }
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 20)
             .navigationBarBackButtonHidden(true)
+            
                
         }
-           
+        Spacer().frame(height : 60)
+        
         coffeeInfo
+        
+        Spacer().frame(height : 32)
         
         let availableTemperatures = coffeeType.availableTemperatures()
                 
@@ -122,21 +129,30 @@ struct CoffeeDetailsView: View {
     
     
     private var coffeeInfo: some View {
-        VStack(alignment: .leading, spacing: 10) {
-           
-            Text(coffeeType.name())
-                .font(.mainTextSemiBold24)
-
-            Text(coffeeType.englishName())
-                .font(.mainTextSemiBold14)
-                .foregroundStyle(Color("gray01"))
+        VStack(alignment: .leading, spacing: 32) {
             
-            Text(coffeeType.description())
-                .font(.mainTextSemiBold14)
-                .foregroundStyle(Color("gray06"))
+            VStack (alignment: .leading, spacing: 8) {
+                HStack{
+                    Text(coffeeType.name())
+                        .font(.mainTextSemiBold24)
+                    
+                    Image("new")
+                }
+                
+                Text(coffeeType.englishName())
+                    .font(.mainTextSemiBold14)
+                    .foregroundStyle(Color("gray01"))
+            }
             
-            Text(coffeeType.price())
-                .font(Font.custom("21 Heads", size: 24))
+            VStack (alignment: .leading, spacing: 20) {
+                Text(coffeeType.description())
+                    .font(.mainTextSemiBold14)
+                    .foregroundStyle(Color("gray06"))
+                    
+                
+                Text(coffeeType.price())
+                    .font(Font.custom("21 Heads", size: 24))
+            }
             
             
         }
@@ -165,5 +181,5 @@ struct CoffeeDetailsView: View {
 
 
 #Preview {
-    CoffeeDetailsView(coffeeType: .CaffeAmericano)
+    CoffeeDetailsView(coffeeType: .IcedCaramelMacchiato)
 }

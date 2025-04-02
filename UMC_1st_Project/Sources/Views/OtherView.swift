@@ -10,6 +10,7 @@ import SwiftUI
 struct OtherView: View {
     
     @StateObject private var otherviewModel = OtherViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -21,6 +22,7 @@ struct OtherView: View {
             Spacer()
             
             Button(action: {
+                dismiss()
                
             }) {
                 Image("Logout")
@@ -137,6 +139,7 @@ struct OtherView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.white)
         
+        .navigationBarBackButtonHidden(true)
     }
     
    

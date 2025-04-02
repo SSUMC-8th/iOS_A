@@ -14,10 +14,11 @@ struct HomeView: View {
     @AppStorage("nickName") private var nickName: String?
     @State private var HomeViewModel : HomeViewModel = .init()
     
-    @State private var path = NavigationPath()
+   // @State private var path = NavigationPath()
+    @StateObject private var router = NavigationRouter()
     
     var body: some View {
-        NavigationStack(path:$path){
+        NavigationStack(path: $router.path){
             ScrollView {
                 
                 topbanner
@@ -65,10 +66,12 @@ struct HomeView: View {
                 .padding(.horizontal, 15)
             }
             .ignoresSafeArea()
-            
+            .navigationDestination(for: CoffeeType.self) { coffee in
+                            CoffeeDetailsView(coffeeType: coffee)
+                        }
             
         }
-        
+        .environmentObject(router)
         
     }
     
@@ -167,13 +170,17 @@ struct HomeView: View {
                 
             } .padding(.horizontal, 10)
             ScrollView(.horizontal) {
-                LazyHStack (spacing : 16) {
-                    ForEach(HomeViewModel.coffees) { coffee in
-                        NavigationLink(destination: CoffeeDetailsView(coffeeType: .CaffeAmericano)){
-                            CircleImageCard(menu: coffee)
+                        LazyHStack(spacing: 16) {
+                            ForEach(HomeViewModel.coffees) { coffee in
+                                Button(action: {
+                                    if let type = coffee.coffeeType {
+                                        router.navigateToCoffeeDetails(coffee: type)
+                                    }
+                                }) {
+                                    CircleImageCard(menu: coffee)
+                                }
+                            }
                         }
-                    }
-                }
                .padding(.horizontal, 10)
                 
             }
@@ -227,6 +234,7 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 130, height: 130)
+                    .clipShape(Circle())
                 
                 Text(menu.imageName)
                     .font(.mainTextSemiBold14)
