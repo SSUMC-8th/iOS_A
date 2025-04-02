@@ -182,4 +182,5 @@ struct CoffeeDetailsView: View {
 
 #Preview {
     CoffeeDetailsView(coffeeType: .IcedCaramelMacchiato)
+        .environmentObject(NavigationRouter())
 }

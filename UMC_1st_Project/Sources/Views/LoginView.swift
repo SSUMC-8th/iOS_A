@@ -13,17 +13,19 @@ struct LoginView: View {
     
     @AppStorage("email") private var savedId: String = "" // 저장된 아이디
     @AppStorage("password") private var savedPw: String = "" // 저장된 비밀번호
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    //@AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @AppStorage("selectedTab") private var selectedTab: Int = 4
     
     @State private var id: String = ""
     @State private var pw: String = ""
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPwFocused: Bool
     
-    @State private var path = NavigationPath()
+    @EnvironmentObject var router: NavigationRouter
     
+ 
     var body: some View {
-        NavigationStack(path:$path){
+        NavigationStack(path: $router.path){
             VStack {
                 mainTitleGroup
                 Spacer()
@@ -95,7 +97,10 @@ struct LoginView: View {
             Button(action: {
                 print("로그인 버튼 클릭")
                 if performLogin(){
-                    path.append("otherview")}
+                    router.navigateToTabBar()
+                    selectedTab = 4
+                    //path.append("tabview")
+                }
                 else {print("실패")}
             } , label : {
                 ZStack{
@@ -114,8 +119,8 @@ struct LoginView: View {
         //.border(Color.blue)
         .padding(.horizontal, 20)
         .navigationDestination(for: String.self) { value in
-                        if value == "otherview" {
-                            OtherView()
+                        if value == "tabview" {
+                            TabBarView(selection: $selectedTab)
                         }
                     }
         
@@ -159,7 +164,6 @@ struct LoginView: View {
     
     func performLogin() -> Bool {
             if id == savedId && pw == savedPw {
-                isLoggedIn = true
                 print("로그인 성공")
                 return true
             } else {
@@ -176,4 +180,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(NavigationRouter())
 }

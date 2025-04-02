@@ -72,5 +72,6 @@ struct AdbannerView: View {
 
 #Preview {
     AdbannerView()
+        .environmentObject(NavigationRouter())
 }
 
