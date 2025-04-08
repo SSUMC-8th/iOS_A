@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @State private var selection = 0
+    @Binding var selection: Int
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         
@@ -17,7 +18,7 @@ struct TabBarView: View {
             
             
             Tab("Home", image: selection == 0 ? "SelectedHome" : "Home", value: 0) {
-                Text("Home")
+                HomeView()
             }
             Tab("Pay", image: selection == 1 ? "SelectedPay" : "Pay", value: 1) {
                 Text("Pay")
@@ -36,6 +37,7 @@ struct TabBarView: View {
             
         }
         .tint(Color("green02"))
+        .toolbar(.hidden, for: .navigationBar)
         //.foregroundStyle(Color.white)
         
        
@@ -44,7 +46,15 @@ struct TabBarView: View {
     
 }
 
+struct TabBarView_PreviewWrapper: View {
+    @State private var selectedTab = 0
+    
+    var body: some View {
+        TabBarView(selection: $selectedTab)
+    }
+}
 
 #Preview {
-    TabBarView()
+    TabBarView_PreviewWrapper()
+        .environmentObject(NavigationRouter())
 }

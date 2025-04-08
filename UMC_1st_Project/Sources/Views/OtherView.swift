@@ -10,6 +10,8 @@ import SwiftUI
 struct OtherView: View {
     
     @StateObject private var otherviewModel = OtherViewModel()
+    //@Environment(\.dismiss) var dismiss
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         
@@ -21,9 +23,9 @@ struct OtherView: View {
             Spacer()
             
             Button(action: {
-               
+                router.logout()
             }) {
-                Image("로그아웃")
+                Image("Logout")
                     
             }
            
@@ -137,6 +139,7 @@ struct OtherView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.white)
         
+        .navigationBarBackButtonHidden(true)
     }
     
    
@@ -202,4 +205,5 @@ struct OtherView: View {
 
 #Preview {
     OtherView()
+        .environmentObject(NavigationRouter())
 }
