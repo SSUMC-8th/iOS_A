@@ -31,6 +31,7 @@ struct TabBarView: View {
             }
             Tab("Other", image: selection == 4 ? "SelectedOther" : "Other", value: 4) {
                 OtherView()
+                    .environmentObject(router)
             }
             
             

@@ -35,11 +35,10 @@ struct ShopView: View {
                 .font(.mainTextBold24)
             
             ScrollView(.horizontal) {
-                LazyHStack{
-                    Image("whatsnew_1")
-                    //.frame(width:270, height: 216)
-                    Image("whatsnew_1")
-                    Image("whatsnew_1")
+                LazyHStack (spacing : 28){
+                    Image("OnlineStore_1")
+                    Image("OnlineStore_2")
+                    Image("OnlineStore_3")
                 }
             }
         }
@@ -51,12 +50,12 @@ struct ShopView: View {
                 .font(.mainTextSemiBold22)
             ScrollView(.horizontal) {
                 LazyHStack (spacing : 17){
-                    ProductCard(title: "너티 크루아상", image: "아이스 카페 아메리카노")
-                    ProductCard(title: "너티 크루아상", image: "all_tumbler")
-                    ProductCard(title: "너티 크루아상", image: "너티 크루아상")
-                    ProductCard(title: "너티 크루아상", image: "너티 크루아상")
-                    ProductCard(title: "너티 크루아상", image: "너티 크루아상")
-                    ProductCard(title: "너티 크루아상", image: "너티 크루아상")
+                    ProductCard(title: "텀블러", image: "all_tumbler")
+                    ProductCard(title: "커피 용품", image: "all_coffeeproducts")
+                    ProductCard(title: "선물세트", image: "all_present")
+                    ProductCard(title: "보온병", image: "all_thermos")
+                    ProductCard(title: "머그/컵", image: "all_mugcup")
+                    ProductCard(title: "라이프스타일", image: "all_lifestyle")
                     
                 }
             }
@@ -88,7 +87,7 @@ struct bestItems: View {
                             
                                 Text(product.name)
                                     .font(.mainTextSemiBold13)
-                                    .foregroundColor(Color("black02"))
+                                    .foregroundStyle(Color("black02"))
                             }
                             .frame(width: 157, height: 208)
                             //.border(Color.black)
@@ -124,11 +123,11 @@ struct NewProducts: View {
                             .aspectRatio(contentMode: .fit)
                         
                         Text(product.name)
-                            .font(.mainTextSemiBold13)
-                            .foregroundColor(Color("black02"))
+                            .font(.mainTextSemiBold14)
+                            .foregroundStyle(Color("black02"))
                     }
                     .frame(width: 157, height: 208)
-                    //.background(Color.gray.opacity(0.1)) // 필요 시 배경
+                    
                 }
             }
         }
