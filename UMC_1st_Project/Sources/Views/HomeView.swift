@@ -17,6 +17,8 @@ struct HomeView: View {
    // @State private var path = NavigationPath()
     @StateObject private var router = NavigationRouter()
     
+    @State private var showAdBanner: Bool = false
+    
     var body: some View {
         NavigationStack(path: $router.path){
             ScrollView {
@@ -67,12 +69,16 @@ struct HomeView: View {
             }
             .ignoresSafeArea()
             .navigationDestination(for: CoffeeType.self) { coffee in
-                            CoffeeDetailsView(coffeeType: coffee)
-                        }
-            
+                CoffeeDetailsView(coffeeType: coffee)
+            }
+            .onAppear {
+                showAdBanner = true
+            }
+            .fullScreenCover(isPresented: $showAdBanner) {
+                AdbannerView()
+            }
+            .environmentObject(router)
         }
-        .environmentObject(router)
-        
     }
     
     private var topbanner : some View {

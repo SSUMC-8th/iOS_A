@@ -7,6 +7,12 @@
 import Foundation
 import SwiftUI
 
+enum Route: Hashable {
+    case receipt
+    
+}
+
+
 class NavigationRouter: ObservableObject {
     @Published var path = NavigationPath()
     @Published var isLoggedIn: Bool = false // 로그인 상태 추가
@@ -26,5 +32,9 @@ class NavigationRouter: ObservableObject {
     func logout() {
         isLoggedIn = false
         path = NavigationPath() // 로그아웃 시 네비게이션 초기화
+    }
+    
+    func navigateToReceipt() {
+        path.append(Route.receipt)
     }
 }

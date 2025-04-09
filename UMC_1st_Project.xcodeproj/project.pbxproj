@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		08431A87286F4613F3879BAC /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0636D9DD501C30B68C08B0EB /* Pretendard-ExtraLight.otf */; };
 		08E3EFA840680B30C822C358 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36923F233F76323D85A940ED /* Pretendard-Thin.otf */; };
 		09B715C5A3B356FD4928760B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B29C97442216139B407ED9 /* Colors.xcassets */; };
+		2B3FBF842F5ADEE6C11D5E86 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974EAF74C9095E3AE3D0DE69 /* ShopModel.swift */; };
 		2B5C7A6B2C19C84EB568365D /* OtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E0AD8F2089AAF274E8920 /* OtherViewModel.swift */; };
 		36FD5780E368D1DED0F1CEAF /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27A81B24A790F0AAA61DAC /* SignupView.swift */; };
 		38FAE3E25EAC0FB00AA1B1F3 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76B042D11EE41E748329F44 /* LoginModel.swift */; };
@@ -23,8 +24,12 @@
 		6D14A40E257D3B52C7F4ECC6 /* AdbannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89B4C32A6D1C27B5DDE850 /* AdbannerView.swift */; };
 		7C407AFF65A3C3150DEDAD38 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2118A779A4F215ED11164B /* Fonts.swift */; };
 		7F7CC9AE333610A11715740E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A1890EE6458F212CBE4F1 /* HomeViewModel.swift */; };
+		850DDAF62DA5338F0018965C /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DDAF52DA5338F0018965C /* ReceiptView.swift */; };
+		850DDB102DA55F4D0018965C /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DDB0F2DA55F4D0018965C /* ReceiptViewModel.swift */; };
+		850DDB122DA56D760018965C /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DDB112DA56D760018965C /* ReceiptModel.swift */; };
 		85CBB17B41073B68329CB74C /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */; };
 		86EA6AC3FD066044B5345C95 /* TuistBundle+UMC1stProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6AF82B820E88C804B563B7 /* TuistBundle+UMC1stProject.swift */; };
+		8746BE1F1D18793140A4D0D8 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE49BD1B81BD812AA2AD288 /* ShopView.swift */; };
 		8D93F1491A2AF9D58881D730 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1688AAA21C305A30DE8206 /* Pretendard-Regular.otf */; };
 		95809E3C8D5344E41ADDD1DF /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16455EB978B5A7150558D2 /* NavigationRouter.swift */; };
 		A02200E7589FDEF91B320C3A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45CD104513B0A2E13DE23E6 /* HomeModel.swift */; };
@@ -100,11 +105,15 @@
 		7C89B4C32A6D1C27B5DDE850 /* AdbannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdbannerView.swift; sourceTree = "<group>"; };
 		81E265776AEA30B2FE908D25 /* CoffeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailsView.swift; sourceTree = "<group>"; };
 		84A47756EAFD6CCFF8916CF5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		850DDAF52DA5338F0018965C /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
+		850DDB0F2DA55F4D0018965C /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		850DDB112DA56D760018965C /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 		8E1688AAA21C305A30DE8206 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		8F27A81B24A790F0AAA61DAC /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		91B7D05B3B5130C0EA144775 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		922E34B6F8DAB4A683A4064B /* UMC_1st_Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "UMC_1st_Project-Info.plist"; sourceTree = "<group>"; };
 		9408CE4AB0C5FE6B853D6622 /* UMC_1st_ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMC_1st_ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		974EAF74C9095E3AE3D0DE69 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		986F41DDFD36B6AB99942DBD /* UMC_1st_ProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "UMC_1st_ProjectTests-Info.plist"; sourceTree = "<group>"; };
 		9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		AD6AF82B820E88C804B563B7 /* TuistBundle+UMC1stProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+UMC1stProject.swift"; sourceTree = "<group>"; };
@@ -112,12 +121,17 @@
 		C77C94642DF7CACD994C6286 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CFBF19026052AFAC90CA2BC6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D76B042D11EE41E748329F44 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		DCE49BD1B81BD812AA2AD288 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		E45CD104513B0A2E13DE23E6 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		EB16455EB978B5A7150558D2 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		F1895D066EF034B922A3E1C1 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		F8F69648E3F91207CE0373AF /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		FB99DCC19DC36C3AE5279CD0 /* TuistAssets+UMC1stProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+UMC1stProject.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		850DDB0A2DA55E790018965C /* OCR */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OCR; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6D1AA65AB312C7339FD21477 /* Frameworks */ = {
@@ -152,7 +166,9 @@
 				461874B1AD35044BF6EFFC64 /* CoffeeDetailsModel.swift */,
 				E45CD104513B0A2E13DE23E6 /* HomeModel.swift */,
 				D76B042D11EE41E748329F44 /* LoginModel.swift */,
+				974EAF74C9095E3AE3D0DE69 /* ShopModel.swift */,
 				F1895D066EF034B922A3E1C1 /* SignupModel.swift */,
+				850DDB112DA56D760018965C /* ReceiptModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,6 +200,7 @@
 				EB16455EB978B5A7150558D2 /* NavigationRouter.swift */,
 				315E0AD8F2089AAF274E8920 /* OtherViewModel.swift */,
 				9EB061538E7EC28EC1E9951A /* SignupViewModel.swift */,
+				850DDB0F2DA55F4D0018965C /* ReceiptViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 		4CAE613EC474C40B8022F67C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				850DDB0A2DA55E790018965C /* OCR */,
 				2428DD97454423BDE242DF55 /* Models */,
 				43566E1D197D03CCFF348937 /* ViewModels */,
 				E1BC4BB7195FC8A765CDE802 /* Views */,
@@ -269,9 +287,11 @@
 				C77C94642DF7CACD994C6286 /* HomeView.swift */,
 				21ACBDA8058B3ABF85A65C22 /* LoginView.swift */,
 				08A2953711C8E9B9D5B2D82E /* OtherView.swift */,
+				DCE49BD1B81BD812AA2AD288 /* ShopView.swift */,
 				8F27A81B24A790F0AAA61DAC /* SignupView.swift */,
 				91B7D05B3B5130C0EA144775 /* SplashView.swift */,
 				CFBF19026052AFAC90CA2BC6 /* TabBarView.swift */,
+				850DDAF52DA5338F0018965C /* ReceiptView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,6 +342,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				850DDB0A2DA55E790018965C /* OCR */,
 			);
 			name = UMC_1st_Project;
 			packageProductDependencies = (
@@ -398,12 +421,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE6701D8D41046276B3D6397 /* TuistAssets+UMC1stProject.swift in Sources */,
+				850DDB102DA55F4D0018965C /* ReceiptViewModel.swift in Sources */,
 				86EA6AC3FD066044B5345C95 /* TuistBundle+UMC1stProject.swift in Sources */,
 				60F6B4DC7CB749FF8B2197EC /* TuistFonts+UMC1stProject.swift in Sources */,
 				7C407AFF65A3C3150DEDAD38 /* Fonts.swift in Sources */,
 				62B268ACE53D03B522534254 /* CoffeeDetailsModel.swift in Sources */,
 				A02200E7589FDEF91B320C3A /* HomeModel.swift in Sources */,
 				38FAE3E25EAC0FB00AA1B1F3 /* LoginModel.swift in Sources */,
+				850DDAF62DA5338F0018965C /* ReceiptView.swift in Sources */,
+				2B3FBF842F5ADEE6C11D5E86 /* ShopModel.swift in Sources */,
 				F9D11699496A33E084318EB4 /* SignupModel.swift in Sources */,
 				D962B9E6EFD1625C42116870 /* UMC1stProjectApp.swift in Sources */,
 				7F7CC9AE333610A11715740E /* HomeViewModel.swift in Sources */,
@@ -415,7 +441,9 @@
 				586686064EA14E91A8CDA0F8 /* CoffeeDetailsView.swift in Sources */,
 				D427BE00913C12BB8367D9CB /* HomeView.swift in Sources */,
 				C5587C16CBB8F71A02556DE0 /* LoginView.swift in Sources */,
+				850DDB122DA56D760018965C /* ReceiptModel.swift in Sources */,
 				F4E4C7C0FAFDBB5E34387375 /* OtherView.swift in Sources */,
+				8746BE1F1D18793140A4D0D8 /* ShopView.swift in Sources */,
 				36FD5780E368D1DED0F1CEAF /* SignupView.swift in Sources */,
 				0144AA5603705F4FEDCD1CD2 /* SplashView.swift in Sources */,
 				D06BE8A987B0249459D9C660 /* TabBarView.swift in Sources */,
@@ -533,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.tuist.UMC-1st-Project";
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.cherrrriessssStarbuck;
 				PRODUCT_NAME = UMC_1st_Project;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -644,7 +672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.tuist.UMC-1st-Project";
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.cherrrriessssStarbuck;
 				PRODUCT_NAME = UMC_1st_Project;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;

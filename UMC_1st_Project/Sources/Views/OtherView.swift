@@ -60,8 +60,11 @@ struct OtherView: View {
                 
                 HStack(spacing : 10.5){
                     ButtonView(title: "별 히스토리")
+                        .environmentObject(router)
                     ButtonView(title: "전자영수증")
+                        .environmentObject(router)
                     ButtonView(title: "나만의 메뉴")
+                        .environmentObject(router)
                 }
                 .padding(.horizontal, 24)
                 //.border(Color.red)
@@ -145,33 +148,7 @@ struct OtherView: View {
    
     
     
-    struct ButtonView: View {
-        var title: String
-        var body: some View {
-            
-            Button(action: {
-                print(title)
-            } , label : {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 18)
-                        .fill(Color.white)
-                        .frame(width:102, height: 108)
-                        .shadow(color: .black.opacity(0.1), radius: 2.5, x: 0, y: 0)
-                    
-                    
-                    VStack (spacing:4) {
-                        Image(title)
-                            .frame(width:38, height: 38)
-                        
-                        Text(title)
-                            .foregroundStyle(Color("black03"))
-                            .font(.mainTextSemiBold16)
-                    }
-                }
-            }
-            )
-        }
-    }
+    
     
     
     struct PayandCSView: View {
@@ -200,6 +177,38 @@ struct OtherView: View {
             
         }
         
+    }
+}
+
+struct ButtonView: View {
+    var title: String
+    @EnvironmentObject var router: NavigationRouter
+    var body: some View {
+        
+        Button(action: {
+            if title == "전자영수증" {
+                    print("전자영수증 버튼 눌림")
+                    router.navigateToReceipt()
+                }
+        } , label : {
+            ZStack{
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color.white)
+                    .frame(width:102, height: 108)
+                    .shadow(color: .black.opacity(0.1), radius: 2.5, x: 0, y: 0)
+                
+                
+                VStack (spacing:4) {
+                    Image(title)
+                        .frame(width:38, height: 38)
+                    
+                    Text(title)
+                        .foregroundStyle(Color("black03"))
+                        .font(.mainTextSemiBold16)
+                }
+            }
+        }
+        )
     }
 }
 
