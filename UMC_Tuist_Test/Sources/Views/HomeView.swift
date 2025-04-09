@@ -11,6 +11,7 @@ struct HomeView: View {
     @AppStorage("nickname") var nickname: String?
     @State private var path = NavigationPath()
     @State private var HomeViewModel: HomeViewModel = .init()
+    @State private var showAdPopup = false
     
     
     var body: some View {
@@ -43,6 +44,12 @@ struct HomeView: View {
             .ignoresSafeArea(.all)
             .navigationDestination(for: CoffeeInfoModel.self) { coffee in
                 CoffeeInfoView(coffee: coffee)
+            }
+            .onAppear {
+                showAdPopup = true
+            }
+            .sheet(isPresented: $showAdPopup) {
+                adPopup()
             }
         }
     }

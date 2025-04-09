@@ -12,6 +12,10 @@ extension Font {
         return UMCTuistTestFontFamily.Pretendard.bold.swiftUIFont(size: 20)
     }
     
+    static var mainTextBold22: Font {
+        return UMCTuistTestFontFamily.Pretendard.bold.swiftUIFont(size: 22)
+    }
+    
     static var mainTextBold24: Font {
         return UMCTuistTestFontFamily.Pretendard.bold.swiftUIFont(size: 24)
     }
