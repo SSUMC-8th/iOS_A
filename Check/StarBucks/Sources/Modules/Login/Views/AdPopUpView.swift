@@ -12,7 +12,11 @@ struct AdPopUpView: View {
     // MARK: - @Environment
     /// 화면 dismiss
     @Environment(\.dismiss) private var dismiss
-
+    
+    // MARK: - @AppStorage
+    /// 광고를 봤는가
+    @AppStorage("didPopup") private var didPopup: Bool = false
+    
     var body: some View {
 
         VStack {
@@ -26,7 +30,10 @@ struct AdPopUpView: View {
                 .padding(.horizontal, 19)
                 .padding(.bottom, 10)
             
-            Button(action: { dismiss() }, label: {
+            Button(action: {
+                didPopup = true 
+                dismiss()
+            }, label: {
                 
                 HStack {
                     

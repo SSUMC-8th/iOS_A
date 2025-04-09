@@ -28,6 +28,9 @@ struct NavigationRoutingView: View {
         case .coffeeDetailView(let menu):
             CoffeeDetailView(container: container, menu: menu)
                 .environmentObject(container)
+        case .receiptListView:
+            ReceiptListView(container: container)
+                .environmentObject(container)
         }
     }
 }

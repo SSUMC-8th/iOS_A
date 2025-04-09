@@ -18,6 +18,7 @@ enum Icon: String {
     case ad_image = "ad_image"
     
     // MARK: - Other
+    case trash = "trash"
     case logout = "logout"
     case own_menu = "own_menu"
     case star = "star"
@@ -82,6 +83,29 @@ enum Icon: String {
     case new = "new"
     case back = "back"
     case share = "share"
+    
+    // MARK: - Shop
+    case coffee_product = "coffee_product"
+    case gift_product = "gift_product"
+    case lifestyle_product = "lifestyle_product"
+    case mug_product = "mug_product"
+    case thermos_product = "thermos_product"
+    case tumblur_product = "tumblur_product"
+    case best1 = "best1"
+    case best2 = "best2"
+    case best3 = "best3"
+    case best4 = "best4"
+    case best5 = "best5"
+    case best6 = "best6"
+    case best7 = "best7"
+    case best8 = "best8"
+    case new1 = "new1"
+    case new2 = "new2"
+    case new3 = "new3"
+    case new4 = "new4"
+    case store1 = "store1"
+    case store2 = "store2"
+    case store3 = "store3"
     
 
     var image: Image {

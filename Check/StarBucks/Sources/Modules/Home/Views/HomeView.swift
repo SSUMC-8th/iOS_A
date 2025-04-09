@@ -173,8 +173,9 @@ struct HomeView: View {
                 
                 Text(attributedString)
                     .font(.mainTextBold24)
-                
+                    
                 Spacer()
+            
             }
             
             ScrollView(.horizontal) {
@@ -193,10 +194,10 @@ struct HomeView: View {
             }
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
-            .safeAreaPadding(.horizontal, 10)
+            // .safeAreaPadding(.horizontal, 10)
 
         }
-        .safeAreaPadding(.horizontal, 10)
+        .safeAreaPadding(.horizontal, 16)
     }
     
     /// What's New 섹션
@@ -212,6 +213,7 @@ struct HomeView: View {
                 Spacer()
             }
             .padding(.top, 5)
+
             
             ScrollView(.horizontal) {
                 
@@ -226,7 +228,7 @@ struct HomeView: View {
             }
             .scrollIndicators(.hidden)
         }
-        .padding(.horizontal, 10)
+        .safeAreaPadding(.horizontal, 16)
     }
     
     /// What's New 카드
@@ -279,7 +281,7 @@ struct HomeView: View {
             .scrollIndicators(.hidden)
             .scrollTargetBehavior(.viewAligned)
         }
-        .padding(.horizontal, 10)
+        .safeAreaPadding(.horizontal, 16)
 
     }
     
