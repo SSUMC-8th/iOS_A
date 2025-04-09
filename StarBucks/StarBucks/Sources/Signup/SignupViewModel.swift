@@ -24,3 +24,4 @@ class SignupViewModel: ObservableObject {
         savedPassword = signupModel.password
     }
 }
+

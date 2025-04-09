@@ -19,26 +19,26 @@ struct HomeView: View {
     }
     
     private var topBanner: some View {
-        GeometryReader { geometry in
+//        GeometryReader { geometry in
             Image("topBanner")
                 .resizable()
                 .scaledToFill()
-                .frame(width: geometry.size.width,
-                       height: geometry.size.width * (259/440))
-                .clipped()
-        }
-        .frame(height: UIScreen.main.bounds.width * (259/440))
+//                .frame(width: geometry.size.width,
+//                       height: geometry.size.width * (259/440))
+//                .clipped()
+//        }
+//        .frame(height: UIScreen.main.bounds.width * (259/440))
     }
     
     private var bannerSection1: some View {
         Image("sizeup")
             .resizable()
             .scaledToFill()
-            .frame(height: 200)
-            .frame(width: 420)
-            .clipped()
-            .padding(.horizontal, 10)
-            .padding(.top, 40)
+//            .frame(height: 200)
+//            .frame(width: 420)
+//            .clipped()
+//            .padding(.horizontal, 10)
+//            .padding(.top, 40)
     }
     
     private var recommendedSection: some View {
@@ -74,7 +74,6 @@ struct HomeView: View {
         VStack(spacing: 0) {
             Image("Blooming")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .frame(width: 420)
                 .frame(height: 451)
                 .clipped()
@@ -82,7 +81,6 @@ struct HomeView: View {
 
             Image("subscribe")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .frame(width: 420)
                 .frame(height: 200)
                 .clipped()
@@ -127,21 +125,18 @@ struct HomeView: View {
         VStack(spacing: 0) {
             Image("mugcup")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .frame(width: 420)
                 .frame(height: 217)
                 .clipped()
                 .padding(.top, 20)
             Image("onlinestore")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .frame(width: 420)
                 .frame(height: 272)
                 .clipped()
                 .padding(.top, 20)
             Image("delivery")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .frame(width: 420)
                 .frame(height: 217)
                 .clipped()
@@ -178,26 +173,19 @@ struct HomeView: View {
         VStack(spacing: 0) {
             Image("coldbrew")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 420)
-                .frame(height: 182)
                 .clipped()
                 .padding(.top, 20)
             Image("baristar")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 420)
                 .frame(height: 360)
                 .clipped()
                 .padding(.top, 20)
             Image("lastBanner")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 420)
-                .frame(height: 182)
                 .clipped()
                 .padding(.top, 20)
         }
+        .padding(.horizontal, 10)
     }
 }
 
