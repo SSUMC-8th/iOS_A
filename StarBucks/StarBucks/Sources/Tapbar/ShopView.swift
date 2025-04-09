@@ -52,27 +52,11 @@ struct ShopAllProductsView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(1..<7) { index in
-                        ShopProductCard(imageName: "All Product\(index)", text: productsText[index-1])
+                        CircleCard(imageName: "All Product\(index)", text: productsText[index-1])
                     }
                 }
             }
             .frame(height: 108)
-        }
-    }
-}
-
-// All Products용 카드 뷰
-struct ShopProductCard: View {
-    let imageName: String
-    let text: String
-    
-    var body: some View {
-        VStack {
-            Image(imageName)
-                .resizable()
-                .frame(width: 80, height: 80)
-            Text(text)
-                .font(.PretendardSemibold14) //13으로 수정
         }
     }
 }
@@ -105,7 +89,7 @@ struct ShopBestItemsView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(1..<5) { i in
                                 // 현재 페이지의 텍스트 배열을 사용
-                                SquareProductCard(imageName: "Best Items\(i)", text: columnText[currentPage][i-1])
+                                SquareCard(imageName: "Best Items\(i)", text: columnText[currentPage][i-1])
                             }
                         }
                     }
@@ -148,29 +132,10 @@ struct ShopNewProductsView: View {
             
             LazyVGrid(columns: columns) {
                 ForEach(1..<5) { i in
-                    SquareProductCard(imageName: "New Products\(i)", text: columnText[i-1])
+                    SquareCard(imageName: "New Products\(i)", text: columnText[i-1])
                 }
             }
         }
-    }
-}
-
-// 공용 상품 카드 뷰 (ShopNewProductsView와 ShopBestItemsView에서 사용)
-struct SquareProductCard: View {
-    let imageName: String
-    let text: String
-    
-    var body: some View {
-        VStack {
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 140, height: 140)
-            Text(text)
-                .font(.PretendardSemibold14)//13으로 수정
-                .multilineTextAlignment(.center)
-        }
-        .padding()
     }
 }
 
