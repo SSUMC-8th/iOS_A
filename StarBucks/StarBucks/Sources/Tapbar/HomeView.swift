@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var showAd: Bool = true
+    
     private let model = HomeModel()
     
     var body: some View {
@@ -16,6 +19,9 @@ struct HomeView: View {
                 bannerSection4
             }
         }
+        .fullScreenCover(isPresented: $showAd) {
+            Advertisement(showAd: $showAd)
+        }
     }
     
     private var topBanner: some View {
@@ -23,22 +29,13 @@ struct HomeView: View {
             Image("topBanner")
                 .resizable()
                 .scaledToFill()
-//                .frame(width: geometry.size.width,
-//                       height: geometry.size.width * (259/440))
-//                .clipped()
-//        }
-//        .frame(height: UIScreen.main.bounds.width * (259/440))
     }
     
     private var bannerSection1: some View {
         Image("sizeup")
             .resizable()
             .scaledToFill()
-//            .frame(height: 200)
-//            .frame(width: 420)
-//            .clipped()
-//            .padding(.horizontal, 10)
-//            .padding(.top, 40)
+
     }
     
     private var recommendedSection: some View {
