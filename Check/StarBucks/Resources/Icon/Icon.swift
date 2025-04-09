@@ -18,6 +18,7 @@ enum Icon: String {
     case ad_image = "ad_image"
     
     // MARK: - Other
+    case trash = "trash"
     case logout = "logout"
     case own_menu = "own_menu"
     case star = "star"

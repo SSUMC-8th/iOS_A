@@ -38,7 +38,6 @@ struct ShopView: View {
             }
         }
         .background(Color.white01)
-        .safeAreaPadding(.horizontal, 16)
     }
     
     /// StarBucks Online Store 섹션
@@ -62,6 +61,8 @@ struct ShopView: View {
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
         }
+        .safeAreaPadding(.horizontal, 16)
+
     }
     
     /// All Products 섹션
@@ -83,6 +84,8 @@ struct ShopView: View {
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
         }
+        .safeAreaPadding(.horizontal, 16)
+
     }
     
     /// Best Items 섹션
@@ -92,6 +95,7 @@ struct ShopView: View {
             Text("Best Items")
                 .font(.mainTextSemiBold22)
                 .foregroundStyle(Color.black03)
+                .padding(.horizontal, 16)
             
             let chunks = viewModel.bestItemModels.chunked(into: 4)
 
@@ -127,8 +131,11 @@ struct ShopView: View {
                 }
             }
             .frame(maxWidth: .infinity)
+
+
         }
-        
+        .frame(maxWidth: .infinity)
+
         
     }
     
@@ -151,8 +158,11 @@ struct ShopView: View {
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
         }
+        .safeAreaPadding(.horizontal, 16)
+
 
     }
+    
 }
 
 #Preview {

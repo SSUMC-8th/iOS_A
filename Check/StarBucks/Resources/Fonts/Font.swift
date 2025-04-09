@@ -87,10 +87,14 @@ extension Font {
     }
     
     // MARK: MainText - Light
+    static var mainTextLight18: Font {
+        return StarBucksFontFamily.Pretendard.light.swiftUIFont(size: 18)
+    }
+
     static var mainTextLight14: Font {
         return StarBucksFontFamily.Pretendard.light.swiftUIFont(size: 14)
     }
-
+    
     // MARK: ButtonText - Medium
     static var buttonTextMedium18: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 18)
