@@ -40,7 +40,9 @@ struct OtherView: View {
                             .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
                         }
 
-                        Button(action: {}) {
+                        NavigationLink {
+                            ReceiptView()}
+                            label: {
                             VStack(spacing: 8) {
                                 Image("receipt")
                                     .resizable()

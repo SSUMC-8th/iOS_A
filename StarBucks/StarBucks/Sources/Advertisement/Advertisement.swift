@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct Advertisement: View {
+    @Binding var showAd: Bool
     @Environment(\.dismiss) private var dismiss // 디
 
     var body: some View {
@@ -37,6 +38,7 @@ struct Advertisement: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                        showAd = true
                         dismiss()
                     }) {
                         Text("X 닫기")
@@ -50,6 +52,3 @@ struct Advertisement: View {
     }
 }
 
-#Preview {
-    Advertisement()
-}

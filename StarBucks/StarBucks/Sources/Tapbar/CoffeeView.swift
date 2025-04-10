@@ -47,7 +47,7 @@ struct CoffeeView: View {
 struct CoffeeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CoffeeView(coffee: NaviCoffeeModel.coffees[0])
+            CoffeeView(coffee: NaviCoffeeModel.coffees[2])
         }
     }
 }
