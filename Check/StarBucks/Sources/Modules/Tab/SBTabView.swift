@@ -17,6 +17,10 @@ struct SBTabView: View {
     /// 현재 탭
     @State private var selectedTab: SBTabCase = .home
     
+    // MARK: - Properties
+    /// 팝업 광고 나타났었는가
+    @AppStorage("didPopup") private var didPopup = false
+    
     init(container: DIContainer) {
         
     }
@@ -27,8 +31,12 @@ struct SBTabView: View {
             VStack {
                 switch selectedTab {
                 case .home:
-                    HomeView(container: container)
-                        .environmentObject(container)
+                    if didPopup {
+                        HomeView(container: container)
+                            .environmentObject(container)
+                    } else {
+                        AdPopUpView()
+                    }
                 case .pay:
                     PayView(container: container)
                         .environmentObject(container)
@@ -59,6 +67,7 @@ struct SBTabView: View {
     
     /// 탭 바
     private var tabBar: some View {
+        
         HStack(alignment: .bottom) {
             ForEach(SBTabCase.allCases, id: \.rawValue) { tab in
                 Spacer()
@@ -90,3 +99,7 @@ struct SBTabView: View {
     SBTabView(container: container)
         .environmentObject(container)
 }
+
+
+
+

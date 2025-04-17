@@ -92,7 +92,9 @@ struct OtherView: View {
             
             // TODO: - 타일 버튼 탭 이벤트 구현
             makeTileButton(title: "별 히스토리", image: Icon.star.image, action: {print("별 히스토리")})
-            makeTileButton(title: "전자영수증", image: Icon.receipt.image, action: {print("전자영수증")})
+            makeTileButton(title: "전자영수증", image: Icon.receipt.image, action: {
+                container.navigationRouter.push(to: .receiptListView)
+            })
             makeTileButton(title: "나만의 메뉴", image: Icon.own_menu.image, action: {print("나만의 메뉴")})
         }
     }

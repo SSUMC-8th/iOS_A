@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct StarBucksApp: App {
@@ -12,6 +13,7 @@ struct StarBucksApp: App {
             SBTabView(container: container)
                 .environmentObject(container)
         }
+        .modelContainer(for: ReceiptModel.self)
     }
 }
 

@@ -36,6 +36,10 @@ extension Font {
         return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 24)
     }
     
+    static var mainTextSemiBold22: Font {
+        return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 22)
+    }
+    
     static var mainTextSemiBold18: Font {
         return StarBucksFontFamily.Pretendard.semiBold.swiftUIFont(size: 18)
     }
@@ -83,10 +87,14 @@ extension Font {
     }
     
     // MARK: MainText - Light
+    static var mainTextLight18: Font {
+        return StarBucksFontFamily.Pretendard.light.swiftUIFont(size: 18)
+    }
+
     static var mainTextLight14: Font {
         return StarBucksFontFamily.Pretendard.light.swiftUIFont(size: 14)
     }
-
+    
     // MARK: ButtonText - Medium
     static var buttonTextMedium18: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 18)
