@@ -48,6 +48,10 @@ extension Font {
         return .pretend(type: .bold, size: 20)
     }
     
+    static var PretendardBold16: Font {
+        return .pretend(type: .bold, size: 16)
+    }
+    
     static var PretendardSemiBold18: Font {
         return .pretend(type: .semibold, size: 18)
     }
@@ -94,6 +98,10 @@ extension Font {
     
     static var PretendardSemibold14: Font {
         return .pretend(type: .semibold, size: 14)
+    }
+    
+    static var PretendardSemibold13: Font {
+        return .pretend(type: .semibold, size: 13)
     }
     
     // MARK: - Button Text Styles
