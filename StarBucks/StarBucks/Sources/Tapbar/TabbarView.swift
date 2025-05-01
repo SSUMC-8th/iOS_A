@@ -10,7 +10,7 @@ struct TabbarView: View {
         VStack(spacing: 0) {
             TopBarView(
                 title: topBarTitles[selectedIndex],
-                showExit: selectedIndex ==4  
+                showExit: selectedIndex == 4  
             )
             
             ZStack {

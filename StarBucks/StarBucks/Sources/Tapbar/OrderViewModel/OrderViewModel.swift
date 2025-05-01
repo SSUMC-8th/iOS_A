@@ -10,17 +10,17 @@ import CoreLocation
 
 // MARK: - 더미 데이터
 let dummyOrderDrinks: [OrderDrink] = [
-    OrderDrink(name: "추천", englishName: "Recommend", imageName: "OrderDrink추천", dot: true),
-    OrderDrink(name: "아이스 카페 아메리카노", englishName: "Reserve Espresso", imageName: "OrderDrink아이스카페아메리카노", dot: true),
-    OrderDrink(name: "카페 아메리카노", englishName: "Reserve Drip", imageName: "OrderDrink카페아메리카노", dot: true),
-    OrderDrink(name: "카푸치노", englishName: "Dcaf Coffee", imageName: "OrderDrink카푸치노", dot: false),
-    OrderDrink(name: "아이스 카푸치노", englishName: "Espresso", imageName: "OrderDrink아이스카푸치노", dot: true),
-    OrderDrink(name: "카라멜 마키아또", englishName: "Blonde Coffee", imageName: "OrderDrink카라멜마끼아또", dot: true),
-    OrderDrink(name: "아이스 카라멜 마키아또", englishName: "Cold Brew", imageName: "OrderDrink아이스카라멜마끼아또", dot: true),
-    OrderDrink(name: "아포가토/기타", englishName: "Others", imageName: "OrderDrink아포가토", dot: false),
-    OrderDrink(name: "럼 샷 코르타도", englishName: "Brewed Coffee", imageName: "OrderDrink럼샷코르타도", dot: true),
-    OrderDrink(name: "라벤더 카페 브레베", englishName: "Teavana", imageName: "OrderDrink라벤더카페브레베", dot: true),
-    OrderDrink(name: "병음료", englishName: "RTD", imageName: "OrderDrink병음료", dot: false)
+    OrderDrink(name: "추천", englishName: "Recommend", imageName: "추천", dot: true),
+    OrderDrink(name: "아이스 카페 아메리카노", englishName: "Reserve Espresso", imageName: "아이스카페아메리카노", dot: true),
+    OrderDrink(name: "카페 아메리카노", englishName: "Reserve Drip", imageName: "카페아메리카노", dot: true),
+    OrderDrink(name: "카푸치노", englishName: "Dcaf Coffee", imageName: "카푸치노", dot: false),
+    OrderDrink(name: "아이스 카푸치노", englishName: "Espresso", imageName: "아이스카푸치노", dot: true),
+    OrderDrink(name: "카라멜 마키아또", englishName: "Blonde Coffee", imageName: "카라멜마끼아또", dot: true),
+    OrderDrink(name: "아이스 카라멜 마키아또", englishName: "Cold Brew", imageName: "아이스카라멜마끼아또", dot: true),
+    OrderDrink(name: "아포가토/기타", englishName: "Others", imageName: "아포가토", dot: false),
+    OrderDrink(name: "럼 샷 코르타도", englishName: "Brewed Coffee", imageName: "럼샷코르타도", dot: true),
+    OrderDrink(name: "라벤더 카페 브레베", englishName: "Teavana", imageName: "라벤더카페브레베", dot: true),
+    OrderDrink(name: "병음료", englishName: "RTD", imageName: "병음료", dot: false)
 ]
 
 

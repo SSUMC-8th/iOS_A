@@ -15,7 +15,7 @@ struct StoreRowView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             // 이미지 자리 (향후 이미지 추가 시 대체 가능)
-            Image("하기싫어")
+            Image("예비용")
                 .resizable()
                 .frame(width: 80, height: 80)
 
