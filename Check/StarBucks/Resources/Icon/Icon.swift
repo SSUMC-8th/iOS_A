@@ -63,6 +63,8 @@ enum Icon: String {
     case coffee_espresso = "coffee_espresso"
     case coffee_ice_americano = "coffee_ice_americano"
     case coffee_ice_caramel = "coffee_ice_caramel"
+
+    
     case recycle = "recycle"
     case find_starbucks = "find_starbucks"
     case reserve_spring = "reserve_spring"
@@ -107,7 +109,20 @@ enum Icon: String {
     case store2 = "store2"
     case store3 = "store3"
     
-
+    // MARK: - Order
+    case cake = "cake"
+    case ice_caramel_macchiato_order = "ice_caramel_macchiato_order"
+    case caramel_macchiato_order = "caramel_macchiato_order"
+    case ice_cafuchino_order = "ice_cafuchino_order"
+    case cafuchino_order = "cafuchino_order"
+    case cafe_americano_order = "cafe_americano_order"
+    case ice_cafe_americano_order = "ice_cafe_americano_order"
+    case recommend_order = "recommend_order"
+    case affogato_order = "affogato_order"
+    case bottled_beverage_order = "bottled_beverage_order"
+    case lavender_cafe_breve_order = "lavender_cafe_breve_order"
+    case rumshot_cortado_order = "rumshot_cortado_order"
+    
     var image: Image {
         return Image(self.rawValue)
     }
