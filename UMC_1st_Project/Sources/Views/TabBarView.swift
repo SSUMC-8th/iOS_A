@@ -24,7 +24,7 @@ struct TabBarView: View {
                 Text("Pay")
             }
             Tab("Order", image: selection == 2 ? "SelectedOrder" : "Order", value: 2) {
-                Text("Order")
+                OrderView()
             }
             Tab("Shop", image: selection == 3 ? "SelectedShop" : "Shop", value: 3) {
                 ShopView()
@@ -59,3 +59,4 @@ struct TabBarView_PreviewWrapper: View {
     TabBarView_PreviewWrapper()
         .environmentObject(NavigationRouter())
 }
+
