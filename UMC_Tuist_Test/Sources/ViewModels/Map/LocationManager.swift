@@ -4,7 +4,7 @@ import MapKit
 import Observation
 
 @Observable
-class LocationManager: NSObject {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     static let shared = LocationManager()
     
@@ -19,6 +19,9 @@ class LocationManager: NSObject {
     var currentDirection: CLLocationDirection = 0
     
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    
+    var currentAddress: String = "주소를 불러오는 중..."
+    private let geocoder = CLGeocoder()
     
     var didEnterGeofence: Bool = false
     var didExitGeofence: Bool = false
@@ -78,6 +81,7 @@ class LocationManager: NSObject {
     func startMonitoringGeofence(center: CLLocationCoordinate2D,
                                  radius: CLLocationDistance,
                                  identifier: String) {
+        
         let region = CLCircularRegion(center: center,
                                       radius: radius,
                                       identifier: identifier)
@@ -85,7 +89,7 @@ class LocationManager: NSObject {
         region.notifyOnExit = true
         
         locationManager.startMonitoring(for: region)
-        print("Monitoring regions: \(locationManager.monitoredRegions)")
+        print("Monitoring regions registered: \(identifier)")
     }
 
     func stopMonitoringAllGeofences() {
@@ -93,10 +97,15 @@ class LocationManager: NSObject {
             locationManager.stopMonitoring(for: region)
         }
     }
+    
+    func getDistance(form location: CLLocation) -> Double? {
+        guard let currentLocation = currentLocation else { return nil }
+        return currentLocation.distance(from: location) / 1000
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
-extension LocationManager: CLLocationManagerDelegate {
+extension LocationManager {
     
     // 권한 변경 감지
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

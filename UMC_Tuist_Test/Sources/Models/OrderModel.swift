@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum SegmentType: String, CaseIterable, Identifiable {
     case allMenu = "전체 메뉴"
@@ -6,6 +7,21 @@ enum SegmentType: String, CaseIterable, Identifiable {
     case cakeReservation = "홀케이크 예약"
     
     var id: String {rawValue}
+    
+    var textColor: Color {
+        switch self {
+        case .allMenu: return .black
+        case .myMenu: return .black
+        case .cakeReservation: return .green01
+        }
+    }
+    
+    var imageName: String? {
+        switch self {
+        case .cakeReservation: return "cake"
+        default : return nil
+        }
+    }
 }
 
 enum AllSegmentType: String, CaseIterable, Identifiable {
@@ -109,9 +125,32 @@ enum OrderModel: CaseIterable{
             return "RTD"
         }
     }
+    
+    func IsThereDot() -> Bool {
+        switch self {
+        case .Recomendation:
+            return true
+        case .IceCafeAmericano:
+            return true
+        case .CafeAmericano:
+            return true
+        case .IceCapuccino:
+            return true
+        case .CaramelMacchiato:
+            return true
+        case .IceCaramelMacchiato:
+            return true
+        case .RumShotCortado:
+            return true
+        case .LavenderCafeBreve:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
-enum StoreCategory: String {
+enum StoreCategory: String, CaseIterable {
     case reserve = "리저브 매장"
     case dt = "DT 매장"
     case none = ""

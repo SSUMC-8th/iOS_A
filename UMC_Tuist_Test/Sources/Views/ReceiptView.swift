@@ -58,8 +58,9 @@ struct ReceiptView: View {
             Button(action: {
                 dismiss()
             }, label: {
-                Image(systemName: "lessthan")
+                Image("blackback")
                     .foregroundColor(Color.black)
+                    .frame(width: 24, height: 24)
             })
             
             Spacer()

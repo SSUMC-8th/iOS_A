@@ -142,12 +142,14 @@ struct OtherView: View {
     @ViewBuilder
     private func destinationView(for title: String) -> some View {
         switch title {
-        case "별 히스토리":
-            ReceiptView() //임시
+//        case "별 히스토리":
+//            ReceiptView() //임시
         case "전자영수증":
             ReceiptView()
-        case "나만의 메뉴":
-            ReceiptView() //임시
+//        case "나만의 메뉴":
+//            ReceiptView() //임시
+        case "매장 정보":
+            StoreInfoView()
         default:
             Text("\(title) 페이지 준비 중 ...")
         }
@@ -155,9 +157,8 @@ struct OtherView: View {
     
     private func ImageAndTextView(title: String) -> some View {
         //    let title: String
-        Button(action: {
-            print(title)
-        }, label: {
+        
+        NavigationLink(destination: destinationView(for: title)) {
             HStack {
                 Image(title)
                     .resizable()
@@ -167,7 +168,7 @@ struct OtherView: View {
                     .foregroundStyle(Color.black02)
             }
             Spacer()
-        })
+        }
         .frame(minWidth: 157)
         .padding(.vertical, 16)
         .padding(.horizontal, 0)

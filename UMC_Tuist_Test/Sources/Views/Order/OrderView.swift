@@ -4,6 +4,7 @@ struct OrderView: View {
     @State private var selectedSegment: SegmentType = .allMenu
     @State private var AllSegment: AllSegmentType = .beverage
     @State private var showStores = false
+    @Namespace var name
     
     let order: OrderModel
     init(order: OrderModel = .Recomendation) {
@@ -13,7 +14,7 @@ struct OrderView: View {
     var body: some View {
         VStack {
             VStack {
-                Spacer()
+                Spacer().frame(height: 59)
                 HStack {
                     Text("Order")
                         .font(.mainTextBold24)
@@ -23,27 +24,50 @@ struct OrderView: View {
                 
                 Spacer().frame(height: 6)
                 
-                HStack {
-                    ForEach(SegmentType.allCases){ segment in
-                        Button(action: {
-                            withAnimation{
-                                selectedSegment = segment
-                            }
-                        }) {
-                            VStack {
-                                Text(segment.rawValue)
-                                    .font(.mainTextSemiBold16)
-                                    .foregroundStyle(Color.black01)
-                                    .padding(.vertical, 13)
-                                
-                                if selectedSegment == segment {
-                                    Rectangle()
-                                        .fill(Color.green01)
-                                        .frame(height: 3)
+                VStack(spacing: 0) {
+                    HStack {
+                        ForEach(SegmentType.allCases){ segment in
+                            Button(action: {
+                                withAnimation(.easeInOut){
+                                    selectedSegment = segment
+                                }
+                            }) {
+                                HStack(spacing: 4) {
+                                    
+                                    if let imageName = segment.imageName {
+                                        Image(imageName)
+                                    }
+                            
+                                    Text(segment.rawValue)
+                                        .font(.mainTextSemiBold16)
+                                        .foregroundStyle(segment.textColor)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 13)
                                 }
                             }
                         }
                     }
+                    .background(Color.white)
+                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    
+                    
+                    ZStack(alignment: .leading) {
+                        
+                        GeometryReader { geo in
+                            let segmentCount = CGFloat(SegmentType.allCases.count)
+                            let segmentWidth = geo.size.width / segmentCount
+                            let index = CGFloat(SegmentType.allCases.firstIndex(of: selectedSegment) ?? 0)
+                            
+                            Capsule()
+                                .fill(Color.green01)
+                                .frame(width: segmentWidth, height: 3)
+                                .offset(x: segmentWidth * index)
+                                .matchedGeometryEffect(id: "Tab", in: name)
+                                .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                        }
+                        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    }
+                    .frame(height: 3)
                 }
                 
                 ZStack {
@@ -65,6 +89,7 @@ struct OrderView: View {
         .sheet(isPresented: $showStores) {
             OrderSheetView()
         }
+        .ignoresSafeArea(.all)
     }
     
     private var AllMenuView: some View {
@@ -79,7 +104,7 @@ struct OrderView: View {
                         HStack {
                             Text(segment.rawValue)
                                 .font(.mainTextSemiBold16)
-                                .foregroundStyle(Color.black01)
+                                .foregroundStyle(AllSegment == segment ? Color.black01 : Color.gray04)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 18)
                         }
@@ -119,10 +144,16 @@ struct OrderView: View {
                             Spacer().frame(width: 16)
                             
                             VStack {
-                                HStack {
+                                HStack(spacing: 1) {
                                     Text(order.BeverageKoreaName())
                                         .font(.mainTextSemiBold16)
                                         .foregroundStyle(Color.gray06)
+                                    if order.IsThereDot() {
+                                        VStack {
+                                            Image("dot")
+                                            Spacer()
+                                        }
+                                    }
                                     Spacer()
                                 }
                                 HStack {
@@ -132,6 +163,7 @@ struct OrderView: View {
                                     Spacer()
                                 }
                             }
+                            .frame(height: 21)
                             Spacer()
                         }
                     }

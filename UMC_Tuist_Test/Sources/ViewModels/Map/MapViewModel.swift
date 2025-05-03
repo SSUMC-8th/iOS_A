@@ -51,7 +51,7 @@ final class MapViewModel {
         
         let search = MKLocalSearch(request: request)
         search.start { [weak self] response, error in
-            guard let self, let mapItems = response?.mapItems else { return }
+            //guard let self, let mapItems = response?.mapItems else { return }
             
             DispatchQueue.main.async {
                 //self.searchResults = mapItems.map { Place(mapItem: $0) }

@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct OrderSheetView: View {
     @State var searchText: String = ""
@@ -6,9 +7,13 @@ struct OrderSheetView: View {
     @State private var selectedMap = false
     @State var JPviewModel: JSONParsingViewModel = .init()
     @Bindable private var viewModel: MapViewModel = .init()
-    @Bindable private var locationManager: LocationManager = .shared
+    @StateObject private var locationManager = LocationManager.shared
+
+    @State private var address: String = "주소를 불러오는 중..."
+    @State private var distance: Double? = nil
     
     var body: some View {
+        
         VStack {
             ZStack {
                 Text("매장 설정")
@@ -91,38 +96,70 @@ struct OrderSheetView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     if let features = JPviewModel.stores?.features {
-                        ForEach(features) { store in
-                            HStack {
-                                Image(systemName: "photo")
-                                    .frame(width: 83, height: 83)
-                                    .cornerRadius(6)
-                                
-                                Spacer().frame(width: 16)
-                                
-                                VStack {
-                                    HStack {
-                                        Text(store.properties.Sotre_nm)
-                                            .font(.headline)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Text(store.properties.Address)
-                                            .font(.subheadline)
-                                            .foregroundColor(.gray)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        
+                        if locationManager.currentLocation == nil {
+                            Text("현재 위치를 불러오는 중입니다...")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        } else if sortedFeatures.isEmpty {
+                            Text("근처 매장을 찾을 수 없습니다.")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        } else{
+                            ForEach(sortedFeatures) { store in
+                                HStack {
+                                    Image(systemName: "photo")
+                                        .frame(width: 83, height: 83)
+                                        .cornerRadius(6)
+                                    
+                                    Spacer().frame(width: 16)
+                                    
+                                    VStack {
+                                        HStack {
+                                            Text(store.properties.Sotre_nm)
+                                                .font(.headline)
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Text(store.properties.Address)
+                                                .font(.subheadline)
+                                                .foregroundColor(.gray)
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            ForEach(store.properties.storeTypes, id: \.self) { type in
+                                                switch type {
+                                                case .reserve:
+                                                    Image("R")
+                                                case .driveThru:
+                                                    Image("D")
+                                                case .none:
+                                                    EmptyView()
+                                                }
+                                            }
+                                            Spacer()
+                                            
+                                        }
                                     }
                                 }
-                            }
-                        }
+                            }}
                     } else {
                         Text("...")
                     }
                 }
                 .padding()
             }
+        }
+    }
+    
+    private var sortedFeatures: [Feature] {
+        guard let features = JPviewModel.stores?.features,
+              let currentLocation = locationManager.currentLocation else {
+            return []
+        }
+        
+        return features.sorted {
+            let loc1 = CLLocation(latitude: $0.geometry.location.latitude, longitude: $0.geometry.location.longitude)
+            let loc2 = CLLocation(latitude: $1.geometry.location.latitude, longitude: $1.geometry.location.longitude)
+            
+            return currentLocation.distance(from: loc1) < currentLocation.distance(from: loc2)
         }
     }
 }
