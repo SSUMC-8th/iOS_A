@@ -27,6 +27,7 @@ enum OrderSegmentCase: String, CaseIterable, SegmentProtocol {
     }
 }
 
+
 protocol SegmentProtocol: Hashable {
     
     var segmentTitle: String { get }

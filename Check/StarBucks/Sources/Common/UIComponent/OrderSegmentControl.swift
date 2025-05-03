@@ -35,7 +35,7 @@ struct OrderSegmentControl<T: CaseIterable & SegmentProtocol>: View {
 
         }
     }
-        
+    
     private func makeSegment(segment: T) -> some View {
         VStack(alignment: .center, spacing: 13, content: {
             Text(segment.segmentTitle)

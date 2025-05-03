@@ -68,7 +68,15 @@ extension Font {
     static var mainTextMedium16: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 16)
     }
-
+    
+    static var mainTextMedium12: Font {
+        return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 12)
+    }
+    
+    static var mainTextMedium10: Font {
+        return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 10)
+    }
+    
     // MARK: MainText - Regular
     static var mainTextRegular24: Font {
         return StarBucksFontFamily.Pretendard.regular.swiftUIFont(size: 24)

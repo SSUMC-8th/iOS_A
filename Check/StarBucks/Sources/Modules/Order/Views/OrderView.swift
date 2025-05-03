@@ -56,7 +56,8 @@ struct OrderView: View {
             
         }
         .sheet(isPresented: $showSheet, content: {
-            StoreSelectView()
+            OrderSheetView()
+                .environmentObject(container)
         })
     }
     
@@ -156,7 +157,6 @@ struct OrderView: View {
                 
                 Button(action: {
                     showSheet.toggle()
-                    print("zz")
 
                 }, label: {
                     Image(systemName: "chevron.down")

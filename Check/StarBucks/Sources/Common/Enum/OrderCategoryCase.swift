@@ -16,4 +16,7 @@ enum OrderCategoryCase: String, CaseIterable {
     var title: String {
         self.rawValue
     }
+    
 }
+
+

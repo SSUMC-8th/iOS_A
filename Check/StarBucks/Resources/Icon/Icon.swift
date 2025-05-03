@@ -122,6 +122,10 @@ enum Icon: String {
     case bottled_beverage_order = "bottled_beverage_order"
     case lavender_cafe_breve_order = "lavender_cafe_breve_order"
     case rumshot_cortado_order = "rumshot_cortado_order"
+    case reserve = "reserve"
+    case drive = "drive"
+    case starbucks_store = "starbucks_store"
+    case annotation = "annotation"
     
     var image: Image {
         return Image(self.rawValue)
