@@ -23,8 +23,12 @@ extension Font {
         return StarBucksFontFamily.Pretendard.bold.swiftUIFont(size: 20)
     }
     
+    static var mainTextBold16: Font {
+        return StarBucksFontFamily.Pretendard.bold.swiftUIFont(size: 16)
+    }
+    
     static var mainTextBold15: Font {
-        return StarBucksFontFamily.Pretendard.bold.swiftUIFont(size: 20)
+        return StarBucksFontFamily.Pretendard.bold.swiftUIFont(size: 15)
     }
 
     // MARK: MainText - SemiBold
@@ -64,7 +68,15 @@ extension Font {
     static var mainTextMedium16: Font {
         return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 16)
     }
-
+    
+    static var mainTextMedium12: Font {
+        return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 12)
+    }
+    
+    static var mainTextMedium10: Font {
+        return StarBucksFontFamily.Pretendard.medium.swiftUIFont(size: 10)
+    }
+    
     // MARK: MainText - Regular
     static var mainTextRegular24: Font {
         return StarBucksFontFamily.Pretendard.regular.swiftUIFont(size: 24)

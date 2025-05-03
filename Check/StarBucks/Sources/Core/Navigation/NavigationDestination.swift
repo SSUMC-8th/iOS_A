@@ -13,6 +13,7 @@ enum NavigationDestination: Hashable {
     case tabView /* 탭 뷰 */
     case coffeeDetailView(menu: Menu) /* 커피 상세정보 화면 */
     case receiptListView /* 전자영수증 화면 */
+    case storeSearchView /* 매장 찾기 화면 */
     
     static func == (lhs: NavigationDestination, rhs: NavigationDestination) -> Bool {
         switch (lhs, rhs) {
@@ -23,6 +24,8 @@ enum NavigationDestination: Hashable {
         case (.coffeeDetailView(_), .coffeeDetailView(_)):
             return true
         case (.receiptListView, .receiptListView):
+            return true
+        case (.storeSearchView, .storeSearchView):
             return true
         default:
             return false
@@ -40,7 +43,8 @@ enum NavigationDestination: Hashable {
             hasher.combine(menu)
         case .receiptListView:
             hasher.combine("receiptListView")
-
+        case .storeSearchView:
+            hasher.combine("storeSearchView")
         }
     }
     

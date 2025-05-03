@@ -25,6 +25,7 @@ extension Color {
     static let gray04 = StarBucksAsset.Colors.gray04.swiftUIColor
     static let gray05 = StarBucksAsset.Colors.gray05.swiftUIColor
     static let gray06 = StarBucksAsset.Colors.gray06.swiftUIColor
+    // static let gray08 = StarBucksAsset.Colors.gray08.swiftUIColor
     
     // MARK: - Green
     static let green00 = StarBucksAsset.Colors.green00.swiftUIColor

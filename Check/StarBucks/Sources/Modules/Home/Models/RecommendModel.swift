@@ -25,6 +25,12 @@ enum Menu: Hashable {
     case Caffe_Americano
     case Espresso_Con_tana
     case Espresso_Macchiato
+    case Affogato
+    case Rumshot_Cortado
+    case Lavender_Cafe_Breve
+    case Bottled_Drink
+    case Cafuchino
+    case Iced_Cappuccino
     
     /// 메뉴 가격
     var price: String {
@@ -41,6 +47,10 @@ enum Menu: Hashable {
             return "4,100원"
         case .Espresso_Macchiato:
             return "3,900원"
+            
+            // TODO: - 수정
+        default:
+            return "5,000원"
         }
     }
     
@@ -59,6 +69,18 @@ enum Menu: Hashable {
             return "에스프레소 콘 파나"
         case .Espresso_Macchiato:
             return "에스프레소 마끼아또"
+        case .Affogato:
+            return "아포가토/기타"
+        case .Rumshot_Cortado:
+            return "럼 샷 코르다도"
+        case .Lavender_Cafe_Breve:
+            return "라벤더 카페 브레베"
+        case .Bottled_Drink:
+            return "병음료"
+        case .Cafuchino:
+            return "카푸치노"
+        case .Iced_Cappuccino:
+            return "아이스 카푸치노"
         }
     }
     
@@ -77,6 +99,18 @@ enum Menu: Hashable {
             return "Espresso Con Panna"
         case .Espresso_Macchiato:
             return "Espresso Macchiato"
+        case .Affogato:
+            return "Others"
+        case .Rumshot_Cortado:
+            return "Brewed Coffee"
+        case .Lavender_Cafe_Breve:
+            return "Teavana"
+        case .Bottled_Drink:
+            return "RTD"
+        case .Cafuchino:
+            return "Cappuchino"
+        case .Iced_Cappuccino:
+            return "Iced Cappuchino"
         }
     }
     
@@ -95,6 +129,10 @@ enum Menu: Hashable {
             return "신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료"
         case .Espresso_Macchiato:
             return "신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로서, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료"
+            // TODO: - 수정
+        default:
+            return ""
+
         }
     }
     
@@ -113,6 +151,17 @@ enum Menu: Hashable {
             return Icon.coffee_contana.image
         case .Espresso_Macchiato:
             return Icon.coffee_espresso.image
+        case .Affogato:
+            return Icon.affogato_order.image
+        case .Rumshot_Cortado:
+            return Icon.rumshot_cortado_order.image
+        case .Lavender_Cafe_Breve:
+            return Icon.lavender_cafe_breve_order.image
+        case .Bottled_Drink:
+            return Icon.bottled_beverage_order.image
+        // TODO: - 수정
+        default:
+            return Icon.cafe_americano.image
         }
     }
     
@@ -131,6 +180,41 @@ enum Menu: Hashable {
             return Icon.espresso_conpana.image
         case .Espresso_Macchiato:
             return Icon.espresso_macchiato.image
+        
+            // TODO: - 수정
+        default:
+            return Icon.ad_banner.image
+        }
+    }
+    
+    /// Order 뷰 이미지
+    var orderImage: Image {
+        
+        switch self {
+        case .Iced_Caramel_Macchiato:
+            return Icon.ice_caramel_macchiato_order.image
+        case .Caramel_Macchiato:
+            return Icon.caramel_macchiato_order.image
+        case .Iced_Caffe_Americano:
+            return Icon.ice_cafe_americano_order.image
+        case .Caffe_Americano:
+            return Icon.cafe_americano_order.image
+        case .Affogato:
+            return Icon.affogato_order.image
+        case .Rumshot_Cortado:
+            return Icon.rumshot_cortado_order.image
+        case .Lavender_Cafe_Breve:
+            return Icon.lavender_cafe_breve_order.image
+        case .Bottled_Drink:
+            return Icon.bottled_beverage_order.image
+        case .Cafuchino:
+            return Icon.cafuchino_order.image
+        case .Iced_Cappuccino:
+            return Icon.ice_cafuchino_order.image
+            // TODO: - 수정
+
+        default:
+            return Icon.ad_banner.image
         }
     }
     
@@ -164,6 +248,9 @@ enum Menu: Hashable {
             return .iceOnly
         case .Espresso_Macchiato:
             return .hotOnly
+            // TODO: - 수정
+        default:
+            return .hot
         }
     }
 }

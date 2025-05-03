@@ -31,6 +31,9 @@ struct NavigationRoutingView: View {
         case .receiptListView:
             ReceiptListView(container: container)
                 .environmentObject(container)
+        case .storeSearchView:
+            StoreSearchView(container: container)
+                .environmentObject(container)
         }
     }
 }
