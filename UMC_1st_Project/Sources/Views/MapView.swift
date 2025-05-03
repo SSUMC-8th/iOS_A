@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct MapView: View {
-    var viewModel: JSONParsingViewModel = .init()
+    var jsonviewModel: JSONParsingViewModel = .init()
     @State private var searchText: String = ""
     
     @State private var selectedTab: StoreTab = .nearbyStore
     @EnvironmentObject var router: NavigationRouter
     @Environment(\.dismiss) var dismiss
+    
+    @Bindable private var locationManager = LocationManager.shared
+    @Bindable private var mapviewModel: MapViewModel = .init()
+    
     
     var body: some View {
         
@@ -57,6 +62,21 @@ struct MapView: View {
             }
             .padding(.horizontal, 20)
             .navigationBarBackButtonHidden(true)
+        
+        Map(position: $mapviewModel.cameraPosition) {
+                    ForEach(mapviewModel.makers, id: \.id, content: { marker in
+                        Annotation(marker.title, coordinate: marker.coordinate, content: {
+                            Image(systemName: "mappin.circle.fill")
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(Color.red)
+                        })
+                    })
+                }
+        
+        
+        
         }
         
         

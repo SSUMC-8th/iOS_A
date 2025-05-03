@@ -25,54 +25,62 @@ struct OrderView: View {
     @State private var selectedBottomTab: BottomTab = .drink
     @State private var showStoreSheet = false
     
-    var body: some View {
-        HStack {
-            Text("Order")
-                .font(.mainTextBold24)
-            Spacer()
-            Text("")
-        }
-        .padding(20)
-        TopSegmentView(selectedTab: $selectedTopTab)
-        BottomSegmentView(selectedTab: $selectedBottomTab)
-        
-        
-        Divider()
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(coffeeMenus, id: \.name) { item in
-                    OrderListView(item: item)
-                }
-            }
-            .padding()
-        }
-                        
-        
-        Button(action: {
-                        showStoreSheet.toggle()
-        }) {
-            VStack{
-                HStack {
-                    Text("주문할 매장을 선택해 주세요")
-                        .font(.mainTextSemiBold16)
-                    Spacer()
-                    Image(systemName: "chevron.down")
-                }
-                Divider()
-                    .background(Color.gray.opacity(3))
-            }
-            .padding()
-            .background(Color.black.opacity(0.9))
-            .foregroundStyle(.white)
-        }
-        .sheet(isPresented: $showStoreSheet) {
-            StoreView()
-        }
-        VStack {
-            
-        }
+    @EnvironmentObject var router: NavigationRouter
     
-    .edgesIgnoringSafeArea(.bottom)
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Order")
+                    .font(.mainTextBold24)
+                Spacer()
+                Text("")
+            }
+            .padding(20)
+            TopSegmentView(selectedTab: $selectedTopTab)
+            BottomSegmentView(selectedTab: $selectedBottomTab)
+            
+            
+            Divider()
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(coffeeMenus, id: \.name) { item in
+                        OrderListView(item: item)
+                    }
+                }
+                .padding()
+            }
+            
+            
+            Button(action: {
+                showStoreSheet.toggle()
+            }) {
+                VStack{
+                    HStack {
+                        Text("주문할 매장을 선택해 주세요")
+                            .font(.mainTextSemiBold16)
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                    }
+                    Divider()
+                        .background(Color.gray.opacity(3))
+                }
+                .padding()
+                .background(Color.black.opacity(0.9))
+                .foregroundStyle(.white)
+            }
+            /*.sheet(isPresented: $showStoreSheet) {
+                StoreView()
+            }*/
+            
+            
+            .edgesIgnoringSafeArea(.bottom)
+        }
+       
+        .sheet(isPresented: $showStoreSheet) {
+           StoreView()
+                .environmentObject(router)
+            //Text("테스트용")
+        }
                     
     }
     
@@ -188,4 +196,5 @@ struct OrderView: View {
 
 #Preview {
     OrderView()
+        .environmentObject(NavigationRouter())
 }
