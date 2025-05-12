@@ -154,7 +154,9 @@ struct OtherView: View {
 
                 }
                 HStack {
-                    OtherMenuCard(title: "매장 정보", image: Icon.store_info.image, action: {print("매장 정보")})
+                    OtherMenuCard(title: "매장 정보", image: Icon.store_info.image, action: {
+                        container.navigationRouter.push(to: .storeSearchView)
+                    })
                     Spacer()
 
                     OtherMenuCard(title: "반납기 정보", image: Icon.return_info.image, action: {print("반납기 정보")})
