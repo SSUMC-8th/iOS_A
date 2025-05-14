@@ -4,7 +4,6 @@
 //
 //  Created by 한태빈 on 5/1/25.
 //
-
 import SwiftUI
 import MapKit
 
@@ -51,7 +50,7 @@ struct MapView: View {
                         .resizable()
                         .frame(width: 35, height: 42)
                 }
-            }
+            }//사용자가 지도를 움직이면 showSearchButton을 띄워서 재검색
             .onChange(of: EquatableCoordinate(mapRegion.center)) { newCenter in
                 if newCenter != lastCenter {
                     showSearchButton = true

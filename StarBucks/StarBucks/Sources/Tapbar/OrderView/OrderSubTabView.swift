@@ -36,7 +36,7 @@ struct OrderSubTabView: View {
             // 각 탭별 뷰
             switch viewModel.selectedTotalTab {
             case .drink:
-                DrinkListView(drinks: dummyOrderDrinks)       //
+                DrinkListView(drinks: dummyOrderDrinks)
             case .food:
                 FoodListView()
             case .product:

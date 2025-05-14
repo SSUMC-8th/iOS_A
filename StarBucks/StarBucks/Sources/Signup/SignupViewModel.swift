@@ -6,22 +6,17 @@
 //
 
 import Foundation
-
-
-import Foundation
 import SwiftUI
+import KeychainAccess  // 추가
 
 class SignupViewModel: ObservableObject {
     @Published var signupModel = SignupModel(nickname: "태빈", email: "", password: "")
 
-    @AppStorage("nickname")  var savedNickname: String = "태빈"
-    @AppStorage("email")  var savedEmail: String = ""
-    @AppStorage("password")  var savedPassword: String = ""
+    private let keychain = Keychain(service: "com.yourapp.identifier")
 
     public func storageData() {
-        savedNickname = signupModel.nickname
-        savedEmail = signupModel.email
-        savedPassword = signupModel.password
+        keychain["nickname"] = signupModel.nickname
+        keychain["userId"] = signupModel.email
+        keychain["password"] = signupModel.password
     }
 }
-

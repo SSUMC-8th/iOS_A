@@ -3,6 +3,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var kakaoVM = KakaoLoginViewModel()
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPwdFocused: Bool
     @EnvironmentObject var router: NavigationRouter
@@ -66,7 +67,7 @@ struct LoginView: View {
                 Spacer().frame(height: 47)
                 
                 Button(action: {
-                    router.isLoggedIn = true
+                    viewModel.login(router: router)  //  ViewModel 통해 Keychain 저장 + 로그인
                 }) {
                     Text("로그인하기")
                         .font(.PretendardMedium16)
@@ -75,6 +76,7 @@ struct LoginView: View {
                         .background(Color("StarBucksGreen"))
                         .cornerRadius(20)
                 }
+
             }
         }
         .frame(maxWidth: 402, minHeight: 180)
@@ -95,6 +97,10 @@ struct LoginView: View {
                 .resizable()
                 .frame(width: 305, height: 45)
                 .padding(.bottom, 10)
+                .onTapGesture {
+                    kakaoVM.loginWithKakao(router: router)
+                }
+
             
             Image("AppleLogin")
                 .resizable()

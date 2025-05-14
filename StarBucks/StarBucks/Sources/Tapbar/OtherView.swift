@@ -1,16 +1,20 @@
 import SwiftUI
+import KeychainAccess
+
 
 extension Color {
     static let starBucksGray = Color("StarBucksGray")
 }
 
 struct OtherView: View {
-    @State private var signupViewModel = SignupViewModel()
+    private let keychain = Keychain(service: "com.yourapp.identifier")
     @State private var otherViewModel = OtherViewModel()
+    
+    var nickname: String {
+        keychain["nickname"] ?? "(닉네임 없음)"
+    }
 
     var body: some View {
-        let nickname = signupViewModel.savedNickname.isEmpty ? "(작성한 닉네임)" : signupViewModel.savedNickname
-
         ZStack {
             Color(red: 248/255, green: 248/255, blue: 248/255)
                 .ignoresSafeArea()
