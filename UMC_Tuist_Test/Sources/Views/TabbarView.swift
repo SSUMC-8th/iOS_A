@@ -22,19 +22,14 @@ struct TabbarView: View {
             Spacer()
             switch selectedTab {
                 case .home:
-<<<<<<< HEAD
                     HomeView()
-=======
-                    Text("home")
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
                 case .pay:
                     Text("pay")
                 case .order:
-                    Text("order")
+                    OrderView()
                 case .shop:
-                    Text("shop")
+                    ShopView()
                 case .other:
-<<<<<<< HEAD
                     OtherView()
             }
             CustomTabView(selectedTab: $selectedTab)
@@ -43,13 +38,6 @@ struct TabbarView: View {
         .ignoresSafeArea(.all)
     }
     
-=======
-                OtherView()
-            }
-            CustomTabView(selectedTab: $selectedTab)
-        }
-    }
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
 }
 
 struct CustomTabView: View {
@@ -88,10 +76,7 @@ struct CustomTabView: View {
             })
             Spacer()
         }
-<<<<<<< HEAD
         .padding(.vertical, 10)
-=======
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
     }
 }
 

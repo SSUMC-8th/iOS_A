@@ -11,19 +11,11 @@ struct adPopup: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-<<<<<<< HEAD
 //        GeometryReader { geometry in
             VStack {
                 Image("ad")
                     .resizable()
                     .aspectRatio(contentMode: .fit) 
-=======
-        GeometryReader { geometry in
-            VStack {
-                Image("ad")
-                    .resizable()
-                    .scaledToFit()
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
                 
                 Spacer()
                 
@@ -39,14 +31,8 @@ struct adPopup: View {
                             .foregroundStyle(Color.white01)
                     }
                 }
-<<<<<<< HEAD
                 Spacer().frame(height: 19)
                 
-=======
-                
-                Spacer().frame(maxHeight: 19)
-
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
                 HStack {
                     Spacer()
                     
@@ -59,21 +45,11 @@ struct adPopup: View {
                     }
                     .padding(.trailing, 38)
                 }
-<<<<<<< HEAD
                 Spacer().frame(height: 36)
             }
 //            .frame(width: geometry.size.width, height: geometry.size.height)
 //        }
             .ignoresSafeArea(.all)
-=======
-                
-                
-                Spacer()
-            }
-            .frame(width: geometry.size.width, height: geometry.size.height)
-        }
-        .ignoresSafeArea()
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
     }
 }
 

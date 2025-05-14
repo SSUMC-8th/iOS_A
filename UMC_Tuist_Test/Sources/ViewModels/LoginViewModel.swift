@@ -6,15 +6,11 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 import SwiftUI
-=======
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
 
 class LoginViewModel: ObservableObject {
     @Published var id: String = ""
     @Published var pwd: String = ""
-<<<<<<< HEAD
     
     @AppStorage("email") private var storedEmail: String = ""
     @AppStorage("password") private var storedPassword: String = ""
@@ -28,6 +24,4 @@ class LoginViewModel: ObservableObject {
             return false
         }
     }
-=======
->>>>>>> 3ac10618351a88174c94584bd41ab7878e819cf5
 }

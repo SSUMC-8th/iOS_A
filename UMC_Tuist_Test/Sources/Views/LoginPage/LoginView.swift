@@ -45,6 +45,17 @@ struct LoginView: View {
         }
         .navigationBarBackButtonHidden()
         .tint(.black)
+        .onAppear {
+            if let id = KeychainWrapper.load(key: "userID"),
+               let pwd = KeychainWrapper.load(key: "userPassword") {
+                user.id = id
+                user.pwd = pwd
+                
+                if user.login() {
+                    showMainView = true
+                }
+            }
+        }
     }
 
     
@@ -151,7 +162,7 @@ struct LoginView: View {
             Spacer().frame(height: 19)
             
             Button(action: {
-                print("Hello")
+                openKakaoLoginPage()
             }, label: {
                 Image(.kakaoLogin)
                     .resizable()
@@ -168,6 +179,16 @@ struct LoginView: View {
                     .resizable()
                     .frame(width: 301, height: 45)
             })
+        }
+    }
+    
+    private func openKakaoLoginPage() {
+        let restApiKey = "d06d7931fc0fb9ea5eea5e069f635518"
+        let redirectURI = "myapp://oauth"
+        let loginURL = "https://kauth.kakao.com/oauth/authorize?client_id=\(restApiKey)&redirect_uri=\(redirectURI)&response_type=code"
+        
+        if let url = URL(string: loginURL) {
+            UIApplication.shared.open(url)
         }
     }
 }
