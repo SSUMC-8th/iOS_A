@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
 
 struct LoginView: View {
     
@@ -16,6 +17,8 @@ struct LoginView: View {
     // MARK: - @Bindable
     /// 뷰모델
     @Bindable private var viewModel: LoginViewModel = .init()
+    
+    let keychainService = KeychainService.shared
     
     init(container: DIContainer){
         
@@ -33,8 +36,10 @@ struct LoginView: View {
                 
                 oAuthSection
             }
-            .navigationDestination(for: NavigationDestination.self) { destination in
-                    NavigationRoutingView(destination: destination)
+            .navigationDestination(
+                for: NavigationDestination.self
+            ) { destination in
+                NavigationRoutingView(destination: destination)
                     .environmentObject(container)
             }
         }
@@ -102,7 +107,7 @@ struct LoginView: View {
             })
             
             // TODO: - 카카오 로그인 구현
-            Button(action: { print("카카오 로그인") }, label: {
+            Button(action: { kakaoLogin() }, label: {
                 Icon.kakao_login.image
 
             })
@@ -115,6 +120,39 @@ struct LoginView: View {
         }
     }
     
+    private func saveToKeychainAndLogin(id: String, password: String) {
+        let saveStatus = keychainService.savePasswordToKeychain(
+            account: id,
+            service: "keychain",
+            password: password
+        )
+            
+        if saveStatus == errSecSuccess {
+            UserDefaults.standard
+                .set(id, forKey: "savedAccount")
+            print("비밀번호 저장 성공")
+        } else {
+            print("비밀번호 저장 실패:", saveStatus)
+        }
+    }
+    
+    private func kakaoLogin() {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                
+            }
+        }
+        
+        UserApi.shared.me { User, Error in
+             if let mail = User?.kakaoAccount?.email {
+                saveToKeychainAndLogin(id: mail, password: mail)
+             }
+        }
+    }
 }
 
 #Preview {

@@ -6,7 +6,6 @@
 //
 import Foundation
 
-
 struct LoginModel {
   
     private var id: String?
