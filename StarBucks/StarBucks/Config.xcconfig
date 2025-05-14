@@ -1,0 +1,16 @@
+//
+//  Config.xcconfig
+//  StarBucks
+//
+//  Created by 한태빈 on 5/15/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+// Kakao Local API Key
+KAKAO_API_KEY = kakao7200406a67efa907f274d1b3f780a94c
+
+// OSRM Backend URL
+OSRM_BASE_URL  = http://localhost:8080
