@@ -1,0 +1,13 @@
+//
+//  TokenProviding.swift
+//  StarBucks
+//
+//  Created by LEE on 5/15/25.
+//
+
+import Foundation
+
+protocol TokenProviding {
+//    var accessToken: String? { get set }
+//    func refreshToken(completion: @escaping (String?, Error?) -> Void)
+}

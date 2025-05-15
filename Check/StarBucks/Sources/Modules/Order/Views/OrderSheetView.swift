@@ -36,7 +36,12 @@ struct OrderSheetView: View {
                 MapView(starbucksList: $viewModel.starBucksList)
                                 
             } else {
-                scrollView
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
+                    scrollView
+                }
             }
 
             Spacer()
@@ -102,6 +107,10 @@ struct OrderSheetView: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 16)
                 .frame(height: 27)
+                .onChange(of: enteredString) { oldValue, newValue in
+                    
+                }
+            
             
             Spacer().frame(height: 18)
             
@@ -168,9 +177,20 @@ struct OrderSheetView: View {
     @ViewBuilder
     private func makeItem(store: StarbucksFeature) -> some View {
         HStack(spacing: 20) {
-            Icon.starbucks_store.image
-                .resizable()
+            if let imageURL = store.imageURL, let url = URL(string: imageURL) {
+                AsyncImage(url: url) { image in
+                    image.resizable()
+                } placeholder: {
+                    Icon.starbucks_store.image
+                        .resizable()
+                        .opacity(0.3)
+                }
                 .frame(width: 83, height: 83)
+            } else {
+                Icon.starbucks_store.image
+                    .resizable()
+                    .frame(width: 83, height: 83)
+            }
             
             VStack(alignment: .leading) {
                 Text(store.properties.storeName)
@@ -199,7 +219,6 @@ struct OrderSheetView: View {
             }
         }
         .padding(.horizontal, 20)
-
     }
     
 }

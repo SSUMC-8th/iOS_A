@@ -9,10 +9,13 @@ import Foundation
 import SwiftUI
 import MapKit
 import CoreLocation
+import Moya
 
 @Observable
 class OrderSheetViewModel {
     
+    private let provider = MoyaProvider<MapAPITarget>()
+
     var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
     
     var currentMapCenter: CLLocationCoordinate2D?
@@ -25,7 +28,6 @@ class OrderSheetViewModel {
         starBucksList
         .filter { ($0.distanceKm != nil) && ($0.distanceKm! <= 10) }
             
-        
     }
     
     
@@ -41,36 +43,90 @@ extension OrderSheetViewModel {
     func loadStarbucksData(
         completion: @escaping (Result<[StarbucksFeature], Error>) -> Void
     ) {
-        
         isLoading = true
-        print(isLoading)
-        
         guard let url = Bundle.main.url(forResource: "starbucks_2025", withExtension: "geojson") else {
-            print("json 파일 없음")
-            completion(
-                .failure(NSError(domain: "파일 못찾아요!", code: 404, userInfo: nil))
-            )
+            completion(.failure(NSError(domain: "파일 못찾아요!", code: 404, userInfo: nil)))
             return
         }
         
         do {
             let data = try Data(contentsOf: url)
-            let decoded = try JSONDecoder().decode(
-                StarbucksData.self,
-                from: data
-            )
+            let decoded = try JSONDecoder().decode(StarbucksData.self, from: data)
             self.starBucksList = decoded.features
-            print("디코딩 성공")
+            
             updateDistance()
-            completion(.success(decoded.features))
+            
+            let group = DispatchGroup()
+            for i in starBucksList.indices {
+                group.enter()
+                fetchImage(for: starBucksList[i]) { url in
+                    DispatchQueue.main.async {
+                        self.starBucksList[i].imageURL = url
+                    }
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .main) {
+                self.isLoading = false
+                completion(.success(self.starBucksList))
+            }
         } catch {
-            print("디코딩 실패: \(error.localizedDescription)")
             completion(.failure(error))
+            self.isLoading = false
         }
-        
-        isLoading = false
-        print(isLoading)
+    }
+    
+    func searchStores(with keyword: String, completion: @escaping ([StarbucksFeature]) -> Void) {
+        let filtered = starBucksList.filter {
+            $0.properties.storeName.localizedCaseInsensitiveContains(keyword)
+        }
 
+        var updatedResults = filtered
+
+        let group = DispatchGroup()
+
+        for index in updatedResults.indices {
+            group.enter()
+            fetchImage(for: updatedResults[index]) { url in
+                updatedResults[index].imageURL = url
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            completion(updatedResults)
+        }
+    }
+
+    func fetchImage(for feature: StarbucksFeature, completion: @escaping (String?) -> Void) {
+        let name = feature.properties.storeName
+
+        provider.request(.searchPlace(keyword: name)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let decoded = try JSONDecoder().decode(PlaceSearchResponse.self, from: response.data)
+                        if let photoRef = decoded.results.first?.photos?.first?.photo_reference {
+                            let url = self.makeImageURL(photoReference: photoRef)
+                            completion(url)
+                        } else {
+                            completion(nil)
+                        }
+                    } catch {
+                        print("디코딩 실패: \(error)")
+                        completion(nil)
+                    }
+                case .failure(let error):
+                    print("요청 실패: \(error)")
+                    completion(nil)
+                }
+            }
+        }
+    
+    func makeImageURL(photoReference: String, maxWidth: Int = 400) -> String {
+        let apiKey = "YOUR_GOOGLE_API_KEY"
+        return "https://maps.googleapis.com/maps/api/place/photo?maxwidth=\(maxWidth)&photo_reference=\(photoReference)&key=\(apiKey)"
     }
 
     private func updateDistance() {

@@ -19,6 +19,8 @@ struct StarbucksFeature: Codable, Identifiable {
     let properties: StarbucksProperties
     let geometry: Geometry
     var distanceKm: Double?
+
+    var imageURL: String?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

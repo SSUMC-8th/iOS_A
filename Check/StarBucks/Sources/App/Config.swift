@@ -28,4 +28,11 @@ enum Config {
         }
         return apiKey
     }()
+    
+    static let mapAPIKey: String = {
+        guard let mapAPIKey = Config.infoDictionary["Map_API_KEY"] as? String else {
+            fatalError()
+        }
+        return mapAPIKey
+    }()
 }
